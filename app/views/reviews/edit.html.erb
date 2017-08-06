@@ -1,0 +1,10 @@
+<% provide(:title, "Edit #{@review.title} | Mean Review") %>
+
+<h2><%= "Edit: #{@review.title} (#{@review.year})" %></h2>
+
+<%= render partial: 'form', locals: { review: @review } %>
+
+<div class="links">
+  <%= link_to "Delete", @review, method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'Cancel', :back %>
+</div>

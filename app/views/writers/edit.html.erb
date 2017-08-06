@@ -1,0 +1,12 @@
+<% provide(:title, "Edit Writer | Mean Review") %>
+
+<h2><%= "Edit: #{@writer.name}" %></h2>
+
+<%= render partial: 'form', locals: { writer: @writer } %>
+
+<div class="links">
+  <% if admin? %>
+    <%= link_to "Delete", @writer, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+  <%= link_to 'Cancel', :back %>
+</div>

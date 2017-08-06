@@ -1,0 +1,30 @@
+<% provide(:title, "#{@writer.name} | Mean Review") %>
+
+<h2><%= @writer.name %></h2><br />
+
+<div class="info">
+  Publication <b><%= @writer.publication %></b> |
+  Number of Reviews <b><%= @writer.reviews.count %></b> |
+  Latest Review <%= link_to @writer.lastest_review.title, review_path(@writer.lastest_review) %>
+  (<%= @writer.lastest_review.year %>)
+  <% if admin? %>
+    | <%= link_to "Add a review", new_writer_review_path(@writer) %>
+    | <%= link_to "Edit", edit_writer_path(@writer) %>
+    | <%= link_to "Delete", @writer, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+</div><br />
+
+<div class="bio">
+  <%= simple_format(@writer.bio) %>
+</div><br />
+
+<div class="movies">
+  <%= "#{@writer.name}'s Reviews" %><br />
+  <% @writer.reviews.each do |movie| %>
+    <%= link_to movie.title, review_path(movie) %> |
+  <% end %>
+</div><br />
+
+<div class="back">
+  <%= link_to 'Back', :back %>
+</div>
