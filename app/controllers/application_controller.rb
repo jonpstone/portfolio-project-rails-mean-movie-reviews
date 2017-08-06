@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   add_flash_types(:error, :notice, :alert)
   protect_from_forgery with: :exception
-  helper_method :current_user, :admin?, :logged_in?, :authorized?
+  helper_method :current_user,  :authorize_user, :admin?, :logged_in?
 
   def admin?
     current_user.admin
@@ -11,9 +11,15 @@ class ApplicationController < ActionController::Base
     current_user
   end
 
-    private
+  private
 
     def current_user
       session[:user_id] ? @current_user ||= User.find(session[:user_id]) : @current_user = nil
+    end
+
+    def authorize_user
+      unless current_user == params[:id].to_i || admin?
+        redirect_to home_path
+      end
     end
 end

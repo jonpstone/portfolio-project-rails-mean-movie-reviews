@@ -8,8 +8,4 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: '!password.nil?'
 
   has_secure_password
-
-  def guest?
-    persisted?
-  end
 end

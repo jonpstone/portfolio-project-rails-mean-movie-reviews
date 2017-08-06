@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     redirect_to home_path, notice: "User deleted"
   end
 
-    private
+  private
 
     def set_user
       @user = User.find(params[:id])
@@ -47,11 +47,5 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:username, :hometown, :email, :password, :admin)
-    end
-
-    def authorize_user
-      unless current_user == params[:id].to_i || admin?
-        redirect_to home_path
-      end
     end
 end
