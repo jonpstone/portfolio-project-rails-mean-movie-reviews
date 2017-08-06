@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PortfolioProjectRailsMeanMovieReviews</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Mean Review" %></title>
+    <link rel="icon" href="https://openclipart.org/image/250px/svg_to_png/170978/camera-icon-estilizado-nofeet.png">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Mean Review" %>">
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    <main role="main" style="width:1000px; margin:0 auto;">
+      <h2><%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %></h2>
+      <h2><%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %></h2>
+      <h2><%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %></h2>
+
+      <%= yield %>
+
+    </main>
   </body>
 </html>
