@@ -1,0 +1,10 @@
+<% provide(:title, "Edit #{current_user.username} | Mean Review") %>
+
+<h2>Edit <%= current_user.username %></h2>
+
+<%= render partial: 'form', locals: { user: @user } %>
+
+<div class="links">
+  <%= link_to "Cencel Account", @user, method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'Cancel', :back %>
+</div>

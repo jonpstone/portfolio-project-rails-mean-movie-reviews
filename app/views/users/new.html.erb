@@ -1,0 +1,9 @@
+<% provide(:title, "New User | Mean Review") %>
+
+<h2>New User</h2>
+
+<%= render partial: 'form', locals: { user: @user } %>
+
+<div class="links">
+  <%= link_to 'Cancel', :back %>
+</div>
