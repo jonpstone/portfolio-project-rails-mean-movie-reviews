@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   root 'home#index' , as: 'home'
   get '/home/admin_area', to: 'home#admin_area'
 
-  resources :users
-  resources :genres
+  get '/signin', to: 'sessions#new'
+  post '/sessions/create', to: 'sessions#create'
+  delete '/signout', to: 'sessions#destroy'
+
+  resources :users, :genres
+  
   resources :profiles, only: [:index, :show]
 
   resources :comments do
