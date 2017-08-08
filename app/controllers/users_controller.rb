@@ -14,10 +14,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      session[:user_id] = user.id
-      redirect_to user, notice: 'Welcome to Mean Reviews'
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user, notice: 'Welcome to Mean Reviews'
     else
       render :new
     end
@@ -46,6 +46,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :hometown, :email, :password, :admin)
+    params.require(:user).permit(:username, :hometown, :email, :password, :password_confirmation, :admin)
   end
 end

@@ -2,18 +2,19 @@
   <ul class="nav navbar-nav">
     <%= link_to image_tag("https://openclipart.org/image/250px/svg_to_png/170978/camera-icon-estilizado-nofeet.png", size: "60"), home_path %>
     <%= link_to "Critics", writers_path %> |
-    <% if admin? %>
-      <%= link_to "Admin area", home_admin_area_path %> |
-      <%= link_to current_user.username, user_path(current_user) %></a> |
-      <%= link_to "Users index", users_path %> |
-      <%= link_to "Sign out", signout_path, method: 'delete' %>
-    <% elsif logged_in? %>
-      <%= link_to current_user.username, profile_path(current_user) %></a> |
-      <%= link_to "Sign out", signout_path, method: 'delete' %>
+    <% if logged_in? %>
+      <% if current_user.try(:admin?) %>
+        <%= link_to "Admin area", home_admin_area_path %> |
+        <%= link_to current_user.username, user_path(current_user) %></a> |
+        <%= link_to "Users index", users_path %> |
+        <%= link_to "Sign out", signout_path, method: 'delete' %>
+      <% else %>
+        <%= link_to current_user.username, profile_path(current_user) %></a> |
+        <%= link_to "Sign out", signout_path, method: 'delete' %>
+      <% end %>
     <% else %>
       <%= link_to "Sign in", signin_path %> |
       <%= link_to "Sign up", new_user_path %> |
-      <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
     <% end %>
   </ul><br />
   <ul>

@@ -10,6 +10,10 @@ class Writer < ApplicationRecord
     self.reviews.order("created_at DESC").first
   end
 
+  def review_list
+    self.reviews.order!(:title)
+  end
+
   def reviews_attributes=(reviews_attributes)
     reviews_attributes.each do |i, review_attributes|
       self.reviews.build(review_attributes)

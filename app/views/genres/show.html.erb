@@ -3,7 +3,7 @@
 <h2><%= @genre.genre_name %></h2>
 
 <div class="delete">
-  <% if admin? %>
+  <% if current_user.try(:admin?) %>
     <%= link_to "Delete Genre", @genre, method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 </div>
@@ -13,7 +13,7 @@
   <% @genre.reviews.each do |movie| %>
     <b>Movie </b><%= link_to movie.title, review_path(movie) %> (<%= movie.year %>) |
     <b>Date </b><%= movie.date_published %>
-    <% if admin? %>
+    <% if current_user.try(:admin?) %>
       | <%= link_to "Delete", movie, method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %><br />
   <% end %>

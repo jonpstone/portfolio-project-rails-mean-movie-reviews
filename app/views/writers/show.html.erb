@@ -7,7 +7,7 @@
   Number of Reviews <b><%= @writer.reviews.count %></b> |
   Latest Review <%= link_to @writer.lastest_review.title, review_path(@writer.lastest_review) %>
   (<%= @writer.lastest_review.year %>)
-  <% if admin? %>
+  <% if current_user.try(:admin?) %>
     | <%= link_to "Add a review", new_writer_review_path(@writer) %>
     | <%= link_to "Edit", edit_writer_path(@writer) %>
     | <%= link_to "Delete", @writer, method: :delete, data: { confirm: "Are you sure?" } %>
@@ -20,7 +20,7 @@
 
 <div class="movies">
   <%= "#{@writer.name}'s Reviews" %><br />
-  <% @writer.reviews.each do |movie| %>
+  <% @writer.review_list.each do |movie| %>
     <%= link_to movie.title, review_path(movie) %> |
   <% end %>
 </div><br />

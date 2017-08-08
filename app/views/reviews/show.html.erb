@@ -9,7 +9,7 @@
   <% @review.genres.each do |genre| %>
     <%= link_to genre.genre_name, genre_path(genre) %> |
   <% end %>
-  <% if admin? %>
+  <% if current_user.try(:admin?) %>
     <%= link_to "Edit", edit_review_path(@review) %> |
     <%= link_to "Delete", @review, method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>

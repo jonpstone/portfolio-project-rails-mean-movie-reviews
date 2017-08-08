@@ -1,6 +1,4 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: :admin_area
-
   def index
     @reviews = Review.all
   end
@@ -8,7 +6,7 @@ class HomeController < ApplicationController
   def admin_area
     @reviews = Review.order(:title)
     @writers = Writer.order(:name)
-    @genres = Genre.order(:name)
+    @genres = Genre.order(:genre_name)
     return head(:forbidden) unless current_user.admin?
   end
 end

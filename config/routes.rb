@@ -8,8 +8,6 @@ Rails.application.routes.draw do
 
   resources :users, :genres
   
-  resources :profiles, only: [:index, :show]
-
   resources :comments do
     resources :comments
   end

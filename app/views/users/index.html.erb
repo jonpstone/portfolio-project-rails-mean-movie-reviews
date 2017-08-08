@@ -1,0 +1,12 @@
+<% provide(:title, "Users' Index | Mean Review") %>
+
+<h2>User's Index</h2>
+
+<div class="users_index">
+  <% @users.each.sort.uniq do |user| %>
+    <%= link_to user.username, user_path(user) %> |
+    <% if current_user.try(:admin?) %>
+      <%= link_to "Delete", registration_path(user), data: { confirm: "Are you sure?" }, method: :delete %>
+    <% end %>
+  <% end %>
+</div>

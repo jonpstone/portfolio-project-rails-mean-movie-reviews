@@ -5,11 +5,13 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:user][:email])
+    user = user.try(:authenticate, params[:user][:password])
     if user
       session[:user_id] = user.id
-      redirect_to user, notice: "Welcome back #{@user.username}!"
+      @user = user
+      redirect_to home_path
     else
-      redirect_to signin_path
+      return redirect_to signin_path, notice: 'Email or password incorrect'
     end
   end
 

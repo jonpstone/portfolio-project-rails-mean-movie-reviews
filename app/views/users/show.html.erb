@@ -1,7 +1,7 @@
 <% provide(:title, "#{@user.username} | Mean Review") %>
 
 <div class="admin">
-  <h2><%= "ADMIN" if admin? %></h2>
+  <h2><%= "ADMIN" if current_user.admin %></h2>
 </div>
 
 <div class="info">
@@ -10,6 +10,6 @@
 
 <div class="link">
   <%= link_to 'Edit User', edit_user_path(@user) %> |
-  <%= link_to "Delete User", @user, method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to "Delete User", @user, method: :delete, data: { confirm: "Are you sure?" } %> |
   <%= link_to 'Back', :back %>
 </div>
