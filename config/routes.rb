@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   delete '/signout', to: 'sessions#destroy'
 
   resources :users, :genres
-  
+
   resources :comments do
     resources :comments
   end
@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   end
 
   resources :writers do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:show, :new, :create]
   end
 end

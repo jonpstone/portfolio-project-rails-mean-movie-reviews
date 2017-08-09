@@ -21,7 +21,7 @@
 <div class="movies">
   <%= "#{@writer.name}'s Reviews" %><br />
   <% @writer.review_list.each do |movie| %>
-    <%= link_to movie.title, review_path(movie) %> |
+    <%= link_to movie.title, writer_review_path(movie.writer, movie) %> |
   <% end %>
 </div><br />
 

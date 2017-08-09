@@ -11,7 +11,7 @@ before_action :find_commentable
       if @comment.save
         redirect_to :back, notice: 'Your comment was successfully posted'
       else
-        redirect_to :back, notice: "Your comment wasn't posted"
+        redirect_to :back, notice: "An error occured, comment not posted"
       end
     else
       redirect_to :back, notice: "You must sign up or log in to comment!"

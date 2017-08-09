@@ -37,7 +37,12 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :year, :date_published, :content, :writer_id, {genre_ids: []})
+    params.require(:review).permit( :title, :year, :date_published, :content,
+    :writer_id, {genre_ids: []})
+  end
+
+  def nested_writer_params
+    params.require(:review).permit( :title, :year, :date_published, :content, {genre_ids: []})
   end
 
   def set_review
