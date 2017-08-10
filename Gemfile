@@ -35,6 +35,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "rack_session_access"
   gem "capybara"
+  gem "dotenv-rails"
 end
 
 group :development do

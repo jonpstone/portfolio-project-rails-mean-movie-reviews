@@ -15,8 +15,23 @@ class SessionsController < ApplicationController
     end
   end
 
+  def facebook
+    @user = User.find_or_create_by(uid: auth['uid']) do |u|
+      u.username = auth['info']['name']
+      u.email = auth['info']['email']
+    end
+    session[:user_id] = @user.id
+    render 'home/index'
+  end
+
   def destroy
     session.clear
     redirect_to home_path
+  end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
   end
 end
