@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/sessions/create', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
 
-  get '/auth/facebook/callback', to: 'sessions#facebook'
+  get '/auth/facebook/callback', to: 'sessions#create'
 
   resources :users, :genres
 

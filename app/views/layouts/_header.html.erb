@@ -9,7 +9,7 @@
         <%= link_to "Users index", users_path %> |
         <%= link_to "Sign out", signout_path, method: 'delete' %>
       <% else %>
-        <%= link_to current_user.username, profile_path(current_user) %></a> |
+        <%= link_to current_user.username, user_path(current_user) %></a> |
         <%= link_to "Sign out", signout_path, method: 'delete' %>
       <% end %>
     <% else %>

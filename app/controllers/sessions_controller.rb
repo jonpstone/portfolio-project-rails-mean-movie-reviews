@@ -4,24 +4,30 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:user][:email])
-    user = user.try(:authenticate, params[:user][:password])
-    if user
-      session[:user_id] = user.id
-      @user = user
-      redirect_to home_path
+    if auth_hash = request.env["omniauth.auth"]
+      oauth_name = request.env["omniauth.auth"]["info"]["name"]
+      oauth_email = request.env["omniauth.auth"]["info"]["email"]
+      if user = User.find_by(email: oauth_email)
+        session[:user_id] = user.id
+      else
+        random_pass = SecureRandom.hex
+        user = User.new(username: oauth_name, email: oauth_email, password: random_pass, password_confirmation: random_pass)
+        if user.save
+          session[:user_id] = user.id
+          redirect_to home_path
+        else
+          redirect_to home_path, error: 'Oauth Failure, please try again'
+        end
+      end
     else
-      return redirect_to signin_path, notice: 'Email or password incorrect'
+      user = User.find_by(email: params[:user][:email])
+      if user && user.try(:authenticate, params[:user][:password])
+        session[:user_id] = user.id
+        redirect_to home_path, notice: 'Sign in successful'
+      else
+        return redirect_to signin_path, error: 'Email or password incorrect'
+      end
     end
-  end
-
-  def facebook
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.username = auth['info']['name']
-      u.email = auth['info']['email']
-    end
-    session[:user_id] = @user.id
-    render 'home/index'
   end
 
   def destroy

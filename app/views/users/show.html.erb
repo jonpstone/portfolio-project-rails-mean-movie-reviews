@@ -5,7 +5,10 @@
 </div>
 
 <div class="info">
-  Userame: <%= @user.username %> | Hometown: <%= @user.hometown %><br />
+  Userame: <%= @user.username %>
+  <% unless @user.hometown.nil?
+    | Hometown: <%= @user.hometown %><br />
+  <% end %>
 </div>
 
 <div class="link">

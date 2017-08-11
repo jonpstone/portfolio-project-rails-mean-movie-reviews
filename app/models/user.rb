@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-  validates_presence_of :hometown, :username, :email
+  validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
-  validates :username, :hometown, length: { in: 3..25 }
   validates :password,  presence: { on: :create },
                         length: { minimum: 6, allow_nil: true },
                         confirmation: true
