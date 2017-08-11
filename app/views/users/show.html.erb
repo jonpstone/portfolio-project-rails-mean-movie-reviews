@@ -5,14 +5,21 @@
 </div>
 
 <div class="info">
-  Userame: <%= @user.username %>
-  <% unless @user.hometown.nil?
-    | Hometown: <%= @user.hometown %><br />
+  Userame: <b><%= @user.username %></b>
+  <% if logged_in? && current_user.provider == 'facebook' %>
+    (Signed in with <%= @user.provider.capitalize %>) |
+  <% else %>
+    |
   <% end %>
-</div>
+  <% unless @user.hometown.nil? %>
+    | Hometown: <b><%= @user.hometown %></b><br />
+  <% end %>
+</div><br />
 
 <div class="link">
-  <%= link_to 'Edit User', edit_user_path(@user) %> |
+  <% if logged_in? && current_user.provider == 'facebook' %>
+    <%= link_to 'Edit User', edit_user_path(@user) %> |
+  <% end %>
   <%= link_to "Delete User", @user, method: :delete, data: { confirm: "Are you sure?" } %> |
   <%= link_to 'Back', :back %>
 </div>

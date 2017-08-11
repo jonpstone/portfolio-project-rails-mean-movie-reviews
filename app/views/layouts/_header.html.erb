@@ -5,11 +5,16 @@
     <% if logged_in? %>
       <% if current_user.try(:admin?) %>
         <%= link_to "Admin area", home_admin_area_path %> |
-        <%= link_to current_user.username, user_path(current_user) %></a> |
+        <%= link_to current_user.username, user_path(current_user) %> |
         <%= link_to "Users index", users_path %> |
         <%= link_to "Sign out", signout_path, method: 'delete' %>
       <% else %>
-        <%= link_to current_user.username, user_path(current_user) %></a> |
+        <%= link_to current_user.username, user_path(current_user) %>
+        <% if logged_in? && current_user.provider == 'facebook' %>
+          (Signed in with <%= current_user.provider.capitalize %>) |
+        <% else %>
+          |
+        <% end %>
         <%= link_to "Sign out", signout_path, method: 'delete' %>
       <% end %>
     <% else %>

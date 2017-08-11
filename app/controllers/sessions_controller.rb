@@ -7,11 +7,13 @@ class SessionsController < ApplicationController
     if auth_hash = request.env["omniauth.auth"]
       oauth_name = request.env["omniauth.auth"]["info"]["name"]
       oauth_email = request.env["omniauth.auth"]["info"]["email"]
+      oauth_provider = request.env["omniauth.auth"]["provider"]
       if user = User.find_by(email: oauth_email)
         session[:user_id] = user.id
       else
         random_pass = SecureRandom.hex
-        user = User.new(username: oauth_name, email: oauth_email, password: random_pass, password_confirmation: random_pass)
+        user = User.new(username: oauth_name, email: oauth_email, password: random_pass,
+                        password_confirmation: random_pass, provider: oauth_provider)
         if user.save
           session[:user_id] = user.id
           redirect_to home_path
