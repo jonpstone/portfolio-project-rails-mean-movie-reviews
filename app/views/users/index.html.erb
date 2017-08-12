@@ -6,7 +6,7 @@
   <% @users.each.sort.uniq do |user| %>
     <%= link_to user.username, user_path(user) %> |
     <% if current_user.try(:admin?) %>
-      <%= link_to "Delete", registration_path(user), data: { confirm: "Are you sure?" }, method: :delete %>
+      <%= link_to "Delete", user_path(user), data: { confirm: "Are you sure?" }, method: :delete %><br />
     <% end %>
   <% end %>
 </div>
