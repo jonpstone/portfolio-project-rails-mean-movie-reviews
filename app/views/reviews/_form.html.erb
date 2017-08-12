@@ -15,10 +15,14 @@
     <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name %>
   </div><br />
 
-  <div class="select">
-    <%= f.label :writer %>
-    <%= f.collection_select :writer_id, Writer.all, :id, :name, prompt: true %>
-  </div><br />
+  <% if !params[:writer_id] %>
+    <div class="select">
+      <%= f.label :writer %>
+      <%= f.collection_select :writer_id, Writer.all, :id, :name, prompt: true %>
+    </div><br />
+  <% else %>
+    <%= f.hidden_field :writer_id %>
+  <% end %>
 
   <div class="field">
     <%= f.label :title %><br />

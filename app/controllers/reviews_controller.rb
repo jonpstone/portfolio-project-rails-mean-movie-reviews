@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
-  before_action :authorize_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize_user, except: :show
+  before_action :set_writer, only: [:new, :edit]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def show
   end
 
   def new
-    @review = Review.new
   end
 
   def create
@@ -36,16 +36,16 @@ class ReviewsController < ApplicationController
 
   private
 
-  def review_params
-    params.require(:review).permit( :title, :year, :date_published, :content,
-    :writer_id, {genre_ids: []})
-  end
+    def review_params
+      params.require(:review).permit( :title, :year, :date_published, :content,
+      :writer_id, {genre_ids: []})
+    end
 
-  def nested_writer_params
-    params.require(:review).permit( :title, :year, :date_published, :content, {genre_ids: []})
-  end
+    def set_review
+      @review = Review.find(params[:id])
+    end
 
-  def set_review
-    @review = Review.find(params[:id])
-  end
+    def set_writer
+      @review = Review.new(writer_id: params[:writer_id])
+    end
 end

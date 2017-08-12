@@ -41,12 +41,12 @@ class WritersController < ApplicationController
 
   private
 
-  def set_writer
-    @writer = Writer.find(params[:id])
-  end
+    def set_writer
+      @writer = Writer.find(params[:id])
+    end
 
-  def writer_params
-    params.require(:writer).permit(:name, :publication, :bio,
-    reviews_attributes: [:title, :year, :date_published, :content, {genre_ids: []}])
-  end
+    def writer_params
+      params.require(:writer).permit(:name, :publication, :bio,
+      reviews_attributes: [:title, :year, :date_published, :content, {genre_ids: []}])
+    end
 end

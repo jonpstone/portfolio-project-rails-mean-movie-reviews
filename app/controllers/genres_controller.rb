@@ -1,6 +1,6 @@
 class GenresController < ApplicationController
   before_action :set_genre, only: [:show, :destroy]
-  before_action :authorize_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize_user, except: :show
 
   def show
   end
@@ -25,11 +25,11 @@ class GenresController < ApplicationController
 
   private
 
-  def set_genre
-    @genre = Genre.find(params[:id])
-  end
+    def set_genre
+      @genre = Genre.find(params[:id])
+    end
 
-  def genre_params
-    params.require(:genre).permit(:genre_name)
-  end
+    def genre_params
+      params.require(:genre).permit(:genre_name)
+    end
 end

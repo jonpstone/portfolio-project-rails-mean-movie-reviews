@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   end
 
   resources :writers do
-    resources :reviews, only: [:show, :new, :create]
+    resources :reviews
   end
 end

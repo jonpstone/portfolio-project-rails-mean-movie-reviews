@@ -20,12 +20,12 @@ before_action :find_commentable
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:body)
-  end
+    def comment_params
+      params.require(:comment).permit(:body)
+    end
 
-  def find_commentable
-    @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
-    @commentable = Review.find_by_id(params[:review_id]) if params[:review_id]
-  end
+    def find_commentable
+      @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+      @commentable = Review.find_by_id(params[:review_id]) if params[:review_id]
+    end
 end
