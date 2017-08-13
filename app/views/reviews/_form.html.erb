@@ -12,17 +12,22 @@
 
   <div class="select">
     <%= f.label :genre %><br />
-    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name %>
+    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name, {item_wrapper_class: 'checkbox_container'} %>
   </div><br />
 
   <% if !params[:writer_id] %>
     <div class="select">
-      <%= f.label :writer %>
+      <%= f.label :writer %></li>
       <%= f.collection_select :writer_id, Writer.all, :id, :name, prompt: true %>
     </div><br />
   <% else %>
     <%= f.hidden_field :writer_id %>
   <% end %>
+
+  <div class="field">
+    <%= f.label :poster %><br />
+    <%= f.file_field :image, autofocus: true %>
+  </div><br />
 
   <div class="field">
     <%= f.label :title %><br />

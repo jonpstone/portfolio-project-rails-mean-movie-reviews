@@ -15,6 +15,10 @@
   <% end %>
 </div>
 
+<div class+"poster">
+  <%= image_tag(@review.image.url, alt: 'Image') if @review.image? %>
+</div>
+
 <div class="content">
   <%= simple_format(@review.content) %>
 </div>

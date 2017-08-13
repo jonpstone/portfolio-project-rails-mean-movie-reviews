@@ -4,6 +4,10 @@
 
 <%= render partial: 'form', locals: { user: @user } %>
 
+<div class="oauth">
+  <%= link_to('Log in with Facebook', '/auth/facebook') %>
+</div><br />
+
 <div class="links">
   <%= link_to 'Cancel', :back %>
 </div>

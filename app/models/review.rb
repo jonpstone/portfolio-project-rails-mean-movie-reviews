@@ -9,4 +9,6 @@ class Review < ApplicationRecord
   validates :content, length: { minimum: 500 }
   validates :title, length: { minimum: 2 }
   validates :year, length: { is: 4 }
+  
+  mount_uploader :image, ImageUploader
 end

@@ -20,7 +20,11 @@
   <div class="field">
     <%= f.label :password %><br>
     <%= f.password_field :password %>
-  </div><br>
+  </div><br />
+
+  <div class="oauth">
+    <%= link_to('Log in with Facebook', '/auth/facebook') %>
+  </div><br />
 
   <%= f.submit 'Sign In' %>
 <% end %>

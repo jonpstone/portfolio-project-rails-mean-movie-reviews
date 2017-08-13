@@ -38,7 +38,7 @@ class ReviewsController < ApplicationController
 
     def review_params
       params.require(:review).permit( :title, :year, :date_published, :content,
-      :writer_id, {genre_ids: []})
+      :writer_id, {genre_ids: []}, :image)
     end
 
     def set_review
