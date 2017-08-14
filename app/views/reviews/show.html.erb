@@ -1,42 +1,46 @@
-<% provide(:title, "#{@review.title} | Mean Review") %>
+<head>
+  <% provide(:title, "#{@review.title} | Mean Review") %>
+  <style>
+    .poster {margin-right: 1em; margin-bottom: 1em;}
+    .content {margin-top: 5px;}
+  </style>
+</head>
+<body>
+  <h2><%= @review.title %> (<%= @review.year %>)</h2><br />
 
-<h2><%= @review.title %> (<%= @review.year %>)</h2><br />
-
-<div class="info">
-  By <b><%= link_to @review.writer.name, writer_path(@review.writer) %></b> |
-  <b><%= @review.writer.publication %></b> |
-  Published <b><%= @review.date_published %></b> |
-  <% @review.genres.each do |genre| %>
-    <%= link_to genre.genre_name, genre_path(genre) %> |
-  <% end %>
-  <% if current_user.try(:admin?) %>
-    <%= link_to "Edit", edit_writer_review_path(@review.writer, @review) %> |
-    <%= link_to "Delete", @review, method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
-</div>
-
-<div class+"poster">
-  <%= image_tag(@review.image.url, alt: 'Image') if @review.image? %>
-</div>
-
-<div class="content">
-  <%= simple_format(@review.content) %>
-</div>
-
-<div class="comments">
-  <% if logged_in? %>
-  <h3>Comments</h3>
-    <%= form_for [@review, Comment.new] do |f| %>
-      <%= f.text_area :body, placeholder: "Add a comment" %><br/>
-      <%= f.submit "Add Comment" %>
+  <div class="info">
+    By <b><%= link_to @review.writer.name, writer_path(@review.writer) %></b> |
+    <b><%= @review.writer.publication %></b> |
+    <b><%= @review.date_published %></b> |
+    <% @review.genres.each do |genre| %>
+      <%= link_to genre.genre_name, genre_path(genre) %> |
     <% end %>
-  <% end %>
+    <% if current_user.try(:admin?) %>
+      <%= link_to "Edit", edit_writer_review_path(@review.writer, @review) %> |
+      <%= link_to "Delete", @review, method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
 
-  <ul>
-    <%= render(partial: 'comments/comment', collection: @review.comments) %>
-  </ul>
-</div>
+  <div class="content">
+    <%= image_tag(@review.image.url, class: 'poster', align: 'left') if @review.image %>
+    <%= simple_format(@review.content) %>
+  </div>
 
-<div class="back">
-  <%= link_to 'Back', :back %>
-</div>
+  <div class="comments">
+    <% if logged_in? %>
+    <h3>Comments</h3>
+      <%= form_for [@review, Comment.new] do |f| %>
+        <%= f.text_area :body, placeholder: "Add a comment" %><br/>
+        <%= f.submit "Add Comment" %>
+      <% end %>
+    <% end %>
+
+    <ul>
+      <%= render(partial: 'comments/comment', collection: @review.comments) %>
+    </ul>
+  </div>
+
+  <div class="back">
+    <%= link_to 'Back', :back %>
+  </div>
+</body>

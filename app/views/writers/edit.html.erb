@@ -1,8 +1,8 @@
 <% provide(:title, "Edit Writer | Mean Review") %>
 
-<h2><%= "Edit: #{@writer.name}" %></h2>
+<h2><%= "Edit: #{@writer.name}" %></h2><br />
 
-<%= render partial: 'form', locals: { writer: @writer } %>
+<%= render partial: 'form', locals: { writer: @writer } %><br />
 
 <div class="links">
   <% if current_user.try(:admin?) %>
