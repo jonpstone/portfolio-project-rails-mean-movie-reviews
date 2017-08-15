@@ -24,9 +24,16 @@
   <div class="content">
     <%= image_tag(@review.image.url, class: 'poster', align: 'left') if @review.image %>
     <%= simple_format(@review.content) %>
+    <% if @review.content.length < 1750 %>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    <% end %>
   </div>
 
-  <div class="comments">
+  <div class="comments" align="left">
     <% if logged_in? %>
     <h3>Comments</h3>
       <%= form_for [@review, Comment.new] do |f| %>

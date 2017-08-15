@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Mean Review" %></title>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+        body {
+            background-image: url(//c1.staticflickr.com/5/4379/35754632154_94469da850_o.jpg);
+            background-size: cover;
+        }
+    </style>
     <link rel="icon" href="https://openclipart.org/image/250px/svg_to_png/170978/camera-icon-estilizado-nofeet.png">
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Mean Review" %>">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
