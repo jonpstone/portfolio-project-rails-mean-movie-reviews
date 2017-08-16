@@ -3,10 +3,10 @@
 <%= form_for @user, url: sessions_create_path do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited you logging in:</h2>
+      <h2 style="color:red;"><%= pluralize(@user.errors.count, "error") %> prohibited you logging in:</h2>
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li style="color:red;"><%= msg %></li>
       <% end %>
       </ul>
     </div>

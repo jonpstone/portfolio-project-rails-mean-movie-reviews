@@ -11,4 +11,5 @@ class Review < ApplicationRecord
   validates :year, length: { is: 4 }
 
   mount_uploader :image, ImageUploader
+  mount_uploader :banner, BannerUploader
 end

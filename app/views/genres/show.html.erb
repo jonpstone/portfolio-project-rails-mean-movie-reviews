@@ -1,6 +1,6 @@
 <% provide(:title, "#{@genre.genre_name} Movies | Mean Review") %>
 
-<h2><%= @genre.genre_name %></h2>
+<h2 class="title"><%= @genre.genre_name %></h2>
 
 <div class="delete">
   <% if current_user.try(:admin?) %>

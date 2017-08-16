@@ -1,10 +1,48 @@
 <% provide(:title, "Home | Mean Review") %>
 
-<div class="latest">
-  <% @reviews.each do |movie| %>
-    <b><%= movie.title %> | <%= movie.date_published %> | <%= movie.writer.name %> </b><br />
-    <%= truncate(movie.content, ommision: "... ", length: 500) %>
-    <%= link_to "Read More", review_path(movie) %>
-    <br /><br />
-  <% end %>
+
+<div id="carousel-example" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example" data-slide-to="1"></li>
+    <li data-target="#carousel-example" data-slide-to="2"></li>
+    <li data-target="#carousel-example" data-slide-to="3"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= link_to image_tag(@reviews.last.banner.url), review_path(@reviews.last)%>
+      <div class="carousel-caption">
+        <h1><%= @reviews.last.excerpt %></h1>
+        <h4><%= @reviews.last.writer.name %> reviews "<%= @reviews.last.title %>"</h4>
+      </div>
+    </div>
+    <div class="item">
+      <%= link_to image_tag(@reviews.second.banner.url), review_path(@reviews.second)%>
+      <div class="carousel-caption">
+        <h1><%= @reviews.second.excerpt %></h1>
+        <h4><%= @reviews.second.writer.name %> reviews "<%= @reviews.second.title %>"</h4>
+      </div>
+    </div>
+    <div class="item">
+      <%= link_to image_tag(@reviews.third.banner.url), review_path(@reviews.third)%>
+      <div class="carousel-caption">
+        <h1><%= @reviews.third.excerpt %></h1>
+        <h4><%= @reviews.third.writer.name %> reviews "<%= @reviews.third.title %>"</h4>
+      </div>
+    </div>
+    <div class="item">
+      <%= link_to image_tag(@reviews.fourth.banner.url), review_path(@reviews.fourth)%>
+      <div class="carousel-caption">
+        <h1><%= @reviews.fourth.excerpt %></h1>
+        <h4><%= @reviews.fourth.writer.name %> reviews "<%= @reviews.fourth.title %>"</h4>
+      </div>
+    </div>
+
+  <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
 </div>

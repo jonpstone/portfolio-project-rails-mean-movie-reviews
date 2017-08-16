@@ -31,14 +31,14 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to home_admin_area_path, notice: "Review deleted"
+    redirect_to home_admin_area_path, alert: "Review deleted"
   end
 
   private
 
     def review_params
-      params.require(:review).permit( :title, :year, :date_published, :content,
-      :writer_id, {genre_ids: []}, :image)
+      params.require(:review).permit(:title, :year, :date_published, :content,
+      :writer_id, {genre_ids: []}, :image, :excerpt, :banner)
     end
 
     def set_review

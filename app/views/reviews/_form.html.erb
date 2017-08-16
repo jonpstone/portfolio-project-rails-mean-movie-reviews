@@ -1,18 +1,16 @@
 <head>
   <style>
-    .label-checkbox {
-      padding: 5px;
-    }
+    .label-checkbox {padding: 5px;}
   </style>
 </head>
 <body>
   <%= form_for review do |f| %>
     <% if review.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+        <h2 style="color:red;"><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
         <ul>
         <% review.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <li style="color:red;"><%= msg %></li>
         <% end %>
         </ul>
       </div>
@@ -37,8 +35,13 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :poster %><br />
+      <%= f.label :poster %> (Poster on view)<br />
       <%= f.file_field :image, autofocus: true %>
+    </div><br />
+
+    <div class="field">
+      <%= f.label :banner %> (Banner on index)<br />
+      <%= f.file_field :banner, autofocus: true %>
     </div><br />
 
     <div class="field">
@@ -59,6 +62,11 @@
     <div class="field">
       <%= f.label :content %><br />
       <%= f.text_area :content, size: "80x50", placeholder: "Minimum 500 characters", autofocus: true %>
+    </div><br />
+
+    <div class="field">
+      <%= f.label :excerpt %><br />
+      <%= f.text_field :excerpt, size: "80x40", autofocus: true %>
     </div><br />
 
     <div class="actions">

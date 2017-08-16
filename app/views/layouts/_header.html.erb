@@ -1,20 +1,15 @@
 <head>
   <style>
     body {min-height: 2000px;padding-top: 90px;}
-    .navbar li a {line-height: 40px;margin: 0;}
+    .navbar li a {line-height: 40px; margin: 0; font-family: "Courier New", Courier, monospace; font-size: 18px;}
     .navbar {background-color: #333333;}
+    .navbar-brand {position: relative; top: -16px;}
   </style>
 </head>
 <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <h5 class="navbar-brand"><%= link_to "THE MEAN REVIEW", home_path %></h5>
+          <div class="navbar-brand"><%= link_to image_tag("//c1.staticflickr.com/5/4378/36456674881_81f54a650b_o.png", style: 'height:350%;width:auto;'), home_path %></div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -49,6 +44,6 @@
               <li><%= link_to "Sign up", new_user_path %></li>
             <% end %>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>

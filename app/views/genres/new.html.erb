@@ -1,14 +1,14 @@
 <% provide(:title, "New Genre | Mean Review") %>
 
-<h2>New Genre</h2><br />
+<h2 class="title">New Genre</h2><br />
 
 <%= form_for @genre do |f| %>
   <% if @genre.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
+      <h2 style="color:red;"><%= pluralize(@genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
       <ul>
       <% @genre.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li style="color:red;"><%= msg %></li>
       <% end %>
       </ul>
     </div>

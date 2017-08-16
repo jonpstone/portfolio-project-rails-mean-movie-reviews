@@ -36,7 +36,7 @@ class WritersController < ApplicationController
 
   def destroy
     @writer.destroy
-    redirect_to home_admin_area_path, notice: "Writer deleted"
+    redirect_to home_admin_area_path, alert: "Writer deleted"
   end
 
   private
