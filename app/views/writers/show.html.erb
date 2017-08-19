@@ -1,30 +1,35 @@
-<% provide(:title, "#{@writer.name} | Mean Review") %>
+<head>
+  <% provide(:title, "#{@writer.name} | Mean Review") %>
+</head>
+<body>
+  <main style="width:950px; margin:0 auto;">
+    <br /><h2 class="title"><%= @writer.name %></h2><br />
 
-<h2 class="title"><%= @writer.name %></h2><br />
+    <div class="info">
+      Publication <b><%= @writer.publication %></b> |
+      Number of Reviews <b><%= @writer.reviews.count %></b> |
+      Latest Review <%= link_to @writer.lastest_review.title, writer_review_path(@writer, @writer.lastest_review) %>
+      (<%= @writer.lastest_review.year %>)
+      <% if current_user.try(:admin?) %>
+        | <%= link_to "Add a review", new_writer_review_path(@writer) %>
+        | <%= link_to "Edit", edit_writer_path(@writer) %>
+        | <%= link_to "Delete", @writer, method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div><br />
 
-<div class="info">
-  Publication <b><%= @writer.publication %></b> |
-  Number of Reviews <b><%= @writer.reviews.count %></b> |
-  Latest Review <%= link_to @writer.lastest_review.title, writer_review_path(@writer, @writer.lastest_review) %>
-  (<%= @writer.lastest_review.year %>)
-  <% if current_user.try(:admin?) %>
-    | <%= link_to "Add a review", new_writer_review_path(@writer) %>
-    | <%= link_to "Edit", edit_writer_path(@writer) %>
-    | <%= link_to "Delete", @writer, method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
-</div><br />
+    <div class="bio">
+      <%= simple_format(@writer.bio) %>
+    </div><br />
 
-<div class="bio">
-  <%= simple_format(@writer.bio) %>
-</div><br />
+    <div class="movies">
+      <%= "#{@writer.name}'s Reviews" %><br />
+      <% @writer.review_list.each do |movie| %>
+        <%= link_to movie.title, writer_review_path(movie.writer, movie) %> |
+      <% end %>
+    </div><br />
 
-<div class="movies">
-  <%= "#{@writer.name}'s Reviews" %><br />
-  <% @writer.review_list.each do |movie| %>
-    <%= link_to movie.title, writer_review_path(movie.writer, movie) %> |
-  <% end %>
-</div><br />
-
-<div class="back">
-  <%= link_to 'Back', :back %>
-</div>
+    <div class="back">
+      <%= link_to 'Back', :back %>
+    </div>
+  </main>
+</body>

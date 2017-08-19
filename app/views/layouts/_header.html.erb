@@ -1,15 +1,18 @@
 <head>
   <style>
-    body {min-height: 2000px;padding-top: 90px;}
+    body {min-height: 2000px; padding-top: 51px;}
     .navbar li a {line-height: 40px; margin: 0; font-family: "Courier New", Courier, monospace; font-size: 18px;}
     .navbar {background-color: #333333;}
+    .navbar-default {border-color: #333333;}
     .navbar-brand {position: relative; top: -16px;}
+    .navbar-default .navbar-nav>li>a {color: #fff;}
+    .navbar-default .navbar-nav>li>a:hover {color: #9c7814;}
   </style>
 </head>
 <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <div class="navbar-brand"><%= link_to image_tag("//c1.staticflickr.com/5/4378/36456674881_81f54a650b_o.png", style: 'height:350%;width:auto;'), home_path %></div>
+          <div class="navbar-brand"><%= link_to image_tag("/assets/zz-mean-review-logo.png", style: 'height:350%;width:auto;'), home_path %></div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

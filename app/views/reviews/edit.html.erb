@@ -1,6 +1,6 @@
 <% provide(:title, "Edit #{@review.title} | Mean Review") %>
 
-<h2 class="title"><%= "Edit: #{@review.title} (#{@review.year})" %></h2><br />
+<br /><h2 class="title"><%= "Edit: #{@review.title} (#{@review.year})" %></h2><br />
 
 <%= render partial: 'form', locals: { review: @review } %><br />
 

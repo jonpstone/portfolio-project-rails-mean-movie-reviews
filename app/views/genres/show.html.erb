@@ -1,20 +1,18 @@
 <% provide(:title, "#{@genre.genre_name} Movies | Mean Review") %>
 
-<h2 class="title"><%= @genre.genre_name %></h2>
-
-<div class="delete">
+<div class="title_delete">
+  <br /><h2 class="title"><%= @genre.genre_name %></h2>
   <% if current_user.try(:admin?) %>
     <%= link_to "Delete Genre", @genre, method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
+  <% end %><br /><br />
 </div>
 
-<h3>Review List</h3>
 <div class="list">
   <% @genre.reviews.each do |movie| %>
     <b>Movie </b><%= link_to movie.title, review_path(movie) %> (<%= movie.year %>) |
     <b>Date </b><%= movie.date_published %>
     <% if current_user.try(:admin?) %>
       | <%= link_to "Delete", movie, method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %><br />
+    <% end %><br /><br />
   <% end %>
 </div>

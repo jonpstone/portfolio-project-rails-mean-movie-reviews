@@ -7,8 +7,8 @@
     <title><%= content_for?(:title) ? yield(:title) : "Mean Review" %></title>
     <style>
         html, body {height: 100%;}
-        body {background-image: url(//c1.staticflickr.com/5/4379/35754632154_94469da850_o.jpg);background-size: cover;}
-        .title { font-family: "Impact", Arial, sans-serif;}
+        body {background-image: url(/assets/zz-wallpaper.jpg); background-size: cover;}
+        .title {font-family: "Impact", Arial, sans-serif;}
     </style>
     <link rel="icon" href="http://www.iconsplace.com/icons/preview/white/film-reel-256.png">
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Mean Review" %>">
@@ -16,11 +16,12 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
+
   <body>
     <header>
       <%= render 'layouts/header' %>
     </header>
-    <main role="main" style="width:1000px; margin:0 auto;">
+    <main role="main" style="width:1250px; margin:0 auto;">
       <h2 style="color:red;"><%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %></h2>
       <h2 style="color:blue;"><%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %></h2>
       <h2 style="color:green;"><%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %></h2>
@@ -28,5 +29,8 @@
       <%= yield %>
 
     </main>
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

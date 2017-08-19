@@ -1,15 +1,15 @@
 <% provide(:title, "#{@user.username} | Mean Review") %>
 
 <div class="admin">
-  <h2><%= "ADMIN" if current_user.admin %></h2>
+  <br /><h2 style="color: RebeccaPurple;"><%= "ADMIN" if current_user.admin %></h2>
 </div>
+
+<h2 class="title">User Profile</h2><br />
 
 <div class="info">
   Userame: <b><%= @user.username %></b>
   <% if logged_in? && current_user.provider == 'facebook' %>
     (Signed in with <%= @user.provider.capitalize %>) |
-  <% else %>
-    |
   <% end %>
   <% unless @user.hometown.nil? %>
     | Hometown: <b><%= @user.hometown %></b><br />
