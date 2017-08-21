@@ -24,10 +24,4 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to home_path
   end
-
-  private
-
-    def auth
-      request.env['omniauth.auth']
-    end
 end

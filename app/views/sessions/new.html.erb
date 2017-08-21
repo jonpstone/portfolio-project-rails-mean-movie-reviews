@@ -1,15 +1,4 @@
 <%= form_for @user, url: sessions_create_path do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2 style="color:red;"><%= pluralize(@user.errors.count, "error") %> prohibited you logging in:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li style="color:red;"><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <br /><h2 class="title">Sign In Below</h2><br />
 
   <div class="field">

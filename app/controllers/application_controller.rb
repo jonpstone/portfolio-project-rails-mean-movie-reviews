@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_user
-    unless admin? || current_user == params[:id].to_i
+    unless admin? || current_user.id == session[:user_id].to_i
       redirect_to home_path
     end
   end

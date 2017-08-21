@@ -1,7 +1,11 @@
 <head>
   <style>
     body {min-height: 2000px; padding-top: 51px;}
-    .navbar li a {line-height: 40px; margin: 0; font-family: "Courier New", Courier, monospace; font-size: 18px;}
+    .navbar li a {
+      line-height: 40px;
+      margin: 0;
+      font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 18px;
+    }
     .navbar {background-color: #333333;}
     .navbar-default {border-color: #333333;}
     .navbar-brand {position: relative; top: -16px;}
@@ -39,7 +43,9 @@
               <% if logged_in? && current_user.provider == 'facebook' %>
                 <li><%= link_to "#{current_user.username} (#{current_user.provider.capitalize})", user_path(current_user) %></li>
               <% elsif current_user.try(:admin?) %>
-              <li><%= link_to "#{current_user.username} (ADMIN)", user_path(current_user) %></li>
+                <li><%= link_to "#{current_user.username} (ADMIN)", user_path(current_user) %></li>
+              <% elsif !current_user.try(:admin?) %>
+                <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
               <% end %>
               <li><%= link_to "Sign out", signout_path, method: 'delete' %></li>
             <% else %>
