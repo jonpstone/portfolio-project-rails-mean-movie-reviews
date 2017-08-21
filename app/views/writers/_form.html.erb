@@ -5,8 +5,8 @@
     <h3><strong>Warning! </strong><%= pluralize(writer.errors.count, "error") %> prohibited this writer from being saved:</h3>
       <ul>
       <% writer.errors.full_messages.each do |msg| %>
-        <li  style="color:red;"><%= msg %></li>
-      <% end %>
+        <li><%= msg %></li>
+      <% end %><br />
       </ul>
     </div>
   <% end %>
