@@ -12,4 +12,8 @@ class Review < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   mount_uploader :banner, BannerUploader
+
+  def self.first_five
+    all.order("created_at DESC").first(5)
+  end
 end

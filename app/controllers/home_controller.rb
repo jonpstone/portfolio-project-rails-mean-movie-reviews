@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @reviews = Review.order("created_at DESC").first(5)
+    @reviews = Review.all
   end
 
   def admin_area
