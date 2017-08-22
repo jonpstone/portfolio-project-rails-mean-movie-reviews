@@ -1,11 +1,16 @@
-<% provide(:title, "Critics | Mean Review") %>
+<head>
+  <% provide(:title, "Critics | Mean Review") %>
+</head>
+<body>
+  <div class="interface">
+    <br /><h2 class="title">Writers and Critics</h2><br />
 
-<br /><h2 class="title">Writers and Critics</h2><br />
-
-<div class="list">
-  <% @writers.each do |critic| %>
-    <b><%= link_to critic.name, writer_path(critic) %></b> |
-    <%= critic.publication %> |
-    <b>Last Review <%= link_to critic.lastest_review.title, review_path(critic.lastest_review) %></b><br /><br />
-  <% end %>
-</div>
+    <div class="list">
+      <% @writers.each do |critic| %>
+        <b><%= link_to critic.name, writer_path(critic) %></b> |
+        <%= critic.publication %> |
+        <b>Last Review <%= link_to critic.lastest_review.title, review_path(critic.lastest_review) %></b><br /><br />
+      <% end %>
+    </div>
+  </div>
+</body>

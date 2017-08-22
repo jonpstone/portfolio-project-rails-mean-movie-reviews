@@ -1,9 +1,14 @@
-<% provide(:title, "New Review | Mean Review") %>
+<head>
+  <% provide(:title, "New Review | Mean Review") %>
+</head>
+<body>
+  <div class="interface">
+    <br /><h2 class="title">New Review</h2><br />
 
-<br /><h2>New Review</h2><br />
+    <%= render partial: 'form', locals: { review: @review } %><br />
 
-<%= render partial: 'form', locals: { review: @review } %><br />
-
-<div class="links">
-  <%= link_to 'Cancel', :back %>
-</div>
+    <div class="links">
+      <%= link_to 'Cancel', :back %>
+    </div>
+  </div>
+</body>

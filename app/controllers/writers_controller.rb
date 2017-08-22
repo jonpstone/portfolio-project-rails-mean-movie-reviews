@@ -47,6 +47,7 @@ class WritersController < ApplicationController
 
     def writer_params
       params.require(:writer).permit(:name, :publication, :bio,
-      reviews_attributes: [:title, :year, :date_published, :content, {genre_ids: []}])
+      reviews_attributes: [:title, :year, :date_published, :content,
+      :writer_id, {genre_ids: []}, :image, :excerpt, :banner])
     end
 end

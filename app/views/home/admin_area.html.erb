@@ -5,61 +5,63 @@
   </style>
 </head>
 <body>
-  <br /><h2 class="title">Admin Area</h2><br />
-  <table>
-    <tr>
-      <th>Reviews | <%= link_to "New Review", new_review_path %></th>
-    </tr>
-    <tr>
-      <td>
-        <br />
-      </td>
-    </tr>
-      <% @reviews.each do |review| %>
-        <tr>
-          <td><%= link_to review.title, review_path(review) %></td>
-          <% if current_user.try(:admin?) %>
-            <td><%= link_to "Edit", edit_review_path(review) %></td>
-          <% end %>
-        </tr>
-      <% end %>
-  </table>
+  <div class="interface">
+    <br /><h2 class="title">Admin Area</h2><br />
+    <table>
+      <tr>
+        <th>Reviews | <%= link_to "New Review", new_review_path %></th>
+      </tr>
+      <tr>
+        <td>
+          <br />
+        </td>
+      </tr>
+        <% @reviews.each do |review| %>
+          <tr>
+            <td><%= link_to review.title, review_path(review) %></td>
+            <% if current_user.try(:admin?) %>
+              <td><%= link_to "Edit", edit_review_path(review) %></td>
+            <% end %>
+          </tr>
+        <% end %>
+    </table>
 
-  <table>
-    <tr>
-      <th>Writers | <%= link_to "New Writer", new_writer_path %></th>
-    </tr>
-    <tr>
-      <td>
-        <br />
-      </td>
-    </tr>
-    <% @writers.each do |writer| %>
-        <tr>
-          <td><%= link_to writer.name, writer_path(writer) %></td>
-          <% if current_user.try(:admin?) %>
-            <td><%= link_to "Edit", edit_writer_path(writer) %></td>
-          <% end %>
-        </tr>
-      <% end %>
-  </table>
+    <table>
+      <tr>
+        <th>Writers | <%= link_to "New Writer", new_writer_path %></th>
+      </tr>
+      <tr>
+        <td>
+          <br />
+        </td>
+      </tr>
+      <% @writers.each do |writer| %>
+          <tr>
+            <td><%= link_to writer.name, writer_path(writer) %></td>
+            <% if current_user.try(:admin?) %>
+              <td><%= link_to "Edit", edit_writer_path(writer) %></td>
+            <% end %>
+          </tr>
+        <% end %>
+    </table>
 
-  <table>
-    <tr>
-      <th>Genres | <%= link_to "New Genre", new_genre_path %></th>
-    </tr>
-    <tr>
-      <td>
-        <br />
-      </td>
-    </tr>
-    <% @genres.each do |genre| %>
-        <tr>
-          <td><%= link_to genre.genre_name, genre_path(genre) %></td>
-          <% if current_user.try(:admin?) %>
-            <td><%= link_to "Delete", genre, method: :delete, data: { confirm: "Are you sure?" } %></td>
-          <% end %>
-        </tr>
-      <% end %>
-  </table>
+    <table>
+      <tr>
+        <th>Genres | <%= link_to "New Genre", new_genre_path %></th>
+      </tr>
+      <tr>
+        <td>
+          <br />
+        </td>
+      </tr>
+      <% @genres.each do |genre| %>
+          <tr>
+            <td><%= link_to genre.genre_name, genre_path(genre) %></td>
+            <% if current_user.try(:admin?) %>
+              <td><%= link_to "Delete", genre, method: :delete, data: { confirm: "Are you sure?" } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+    </table>
+  </div>
 </body>

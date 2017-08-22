@@ -1,19 +1,26 @@
-<%= form_for @user, url: sessions_create_path do |f| %>
-  <br /><h2 class="title">Sign In Below</h2><br />
+<head>
+  <% provide(:title, "Sign in | Mean Review") %>
+</head>
+<body>
+  <div class="interface">
+    <%= form_for @user, url: sessions_create_path do |f| %>
+      <br /><h2 class="title">Sign In Below</h2><br />
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div><br />
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email %>
+      </div><br />
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div><br />
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password %>
+      </div><br />
 
-  <%= f.submit 'Sign In' %>
-<% end %><br /><br />
+      <%= f.submit 'Sign In' %>
+    <% end %><br /><br />
 
-<div class="oauth">
-  <%= link_to(image_tag("/assets/button-facebook.png", size: "257x53"), "auth/facebook") %>
-</div>
+    <div class="oauth">
+      <%= link_to(image_tag("/assets/button-facebook.png", size: "257x53"), "auth/facebook") %>
+    </div>
+  </div>
+</body>

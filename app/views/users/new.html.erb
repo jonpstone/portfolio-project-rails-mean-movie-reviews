@@ -1,14 +1,19 @@
-<% provide(:title, "New User | Mean Review") %>
+<head>
+  <% provide(:title, "New User | Mean Review") %>
+</head>
+<body>
+  <div class="interface">
+    <br /><h2 class="title">New User</h2><br />
 
-<br /><h2 class="title">New User</h2><br />
+    <%= render partial: 'form', locals: { user: @user } %>
 
-<%= render partial: 'form', locals: { user: @user } %>
+    <div class="oauth">
+      <%= link_to(image_tag("/assets/facebook_register.png", size: "257x53"), "auth/facebook") %>
 
-<div class="oauth">
-  <%= link_to(image_tag("/assets/facebook_register.png", size: "257x53"), "auth/facebook") %>
+    </div><br />
 
-</div><br />
-
-<div class="links">
-  <%= link_to 'Cancel', :back %>
-</div>
+    <div class="links">
+      <%= link_to 'Cancel', :back %>
+    </div>
+  </div>
+</body>

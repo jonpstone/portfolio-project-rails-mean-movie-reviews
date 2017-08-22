@@ -9,6 +9,8 @@
         html, body {height: 100%;}
         body {background-image: url(/assets/zz-wallpaper.jpg); background-size: cover;}
         .title {font-family: "Impact", Arial, sans-serif;}
+        .message {}
+        .interface {height: 100%; overflow: hidden; margin-left: 75px; margin-top: 30px;}
     </style>
     <link rel="icon" href="http://www.iconsplace.com/icons/preview/white/film-reel-256.png">
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Mean Review" %>">
@@ -22,22 +24,24 @@
       <%= render 'layouts/header' %>
     </header>
     <main role="main" style="width:1250px; margin:0 auto;">
-      <% if flash[:error] %>
-      <br /><br /><br /><div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <h2><%= content_tag(:div, flash[:error], id: "flash_error")  %></h2>
+      <div class="message">
+        <% if flash[:error] %>
+        <div class="alert alert-danger">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <h2><%= content_tag(:div, flash[:error], id: "flash_error")  %></h2>
+        </div>
+        <% elsif flash[:notice]  %>
+        <br /><div class="alert alert-success">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <br /><h2><%= content_tag(:div, flash[:notice], id: "flash_notice") %></h2>
+        </div>
+        <% elsif flash[:alert] %>
+        <br /><div class="alert alert-info">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <br /><h2><%= content_tag(:div, flash[:alert], id: "flash_alert") %></h2>
+        </div>
+        <% end %>
       </div>
-      <% elsif flash[:notice]  %>
-      <br /><div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <br /><h2><%= content_tag(:div, flash[:notice], id: "flash_notice") %></h2>
-      </div>
-      <% elsif flash[:alert] %>
-      <br /><div class="alert alert-info">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <br /><h2><%= content_tag(:div, flash[:alert], id: "flash_alert") %></h2>
-      </div>
-      <% end %>
 
       <%= yield %>
 

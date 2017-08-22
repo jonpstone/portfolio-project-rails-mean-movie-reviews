@@ -4,11 +4,12 @@
   </style>
 </head>
 <body>
+  <div class="interface"
   <%= form_for review do |f| %>
     <% if review.errors.any? %>
       <div class="alert alert-warning alert-dismissable">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <h3><strong>Warning! </strong><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h3>
+        <h3><strong>Erroer! </strong><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h3>
         <ul>
         <% review.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>

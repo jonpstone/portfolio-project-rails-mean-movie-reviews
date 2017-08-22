@@ -1,12 +1,16 @@
-<% provide(:title, "Users' Index | Mean Review") %>
-
-<br /><h2 class="title">User's Index</h2>
-
-<div class="users_index">
-  <% @users.each.sort.uniq do |user| %>
-    <%= link_to user.username, user_path(user) %> |
-    <% if current_user.try(:admin?) %>
-      <%= link_to "Delete", user_path(user), data: { confirm: "Are you sure?" }, method: :delete %><br />
-    <% end %>
-  <% end %>
-</div>
+<head>
+  <% provide(:title, "Users' Index | Mean Review") %>
+</head>
+<body>
+  <div class="interface">
+    <br /><h2 class="title">User's Index</h2>
+    <div class="users_index">
+      <% @users.order(:username).each.sort.uniq do |user| %>
+        <%= link_to user.username, user_path(user) %> |
+        <% if current_user.try(:admin?) %>
+          <%= link_to "Delete", user_path(user), data: { confirm: "Are you sure?" }, method: :delete %><br />
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</body>

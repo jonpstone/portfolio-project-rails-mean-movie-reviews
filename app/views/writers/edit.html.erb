@@ -1,12 +1,17 @@
-<% provide(:title, "Edit Writer | Mean Review") %>
+<head>
+  <% provide(:title, "Edit Writer | Mean Review") %>
+</head>
+<body>
+  <div class="interface">
+    <br /><h2 class="title"><%= "Edit: #{@writer.name}" %></h2><br />
 
-<br /><h2 class="title"><%= "Edit: #{@writer.name}" %></h2><br />
+    <%= render partial: 'form', locals: { writer: @writer } %><br />
 
-<%= render partial: 'form', locals: { writer: @writer } %><br />
-
-<div class="links">
-  <% if current_user.try(:admin?) %>
-    <%= link_to "Delete", @writer, method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
-  <%= link_to 'Cancel', :back %>
-</div>
+    <div class="links">
+      <% if current_user.try(:admin?) %>
+        <%= link_to "Delete", @writer, method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+      <%= link_to 'Cancel', :back %>
+    </div>
+  </div>
+</body>

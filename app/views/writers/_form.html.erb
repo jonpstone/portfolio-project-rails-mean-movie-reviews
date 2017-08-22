@@ -1,63 +1,87 @@
-<%= form_for writer do |f| %>
-  <% if writer.errors.any? %>
-  <div class="alert alert-warning alert-dismissable">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <h3><strong>Warning! </strong><%= pluralize(writer.errors.count, "error") %> prohibited this writer from being saved:</h3>
-      <ul>
-      <% writer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %><br />
-      </ul>
-    </div>
-  <% end %>
+<head>
+  <style>
+    .label-checkbox {padding: 5px;}
+  </style>
+</head>
+<body>
+  <div class="interface">
+    <%= form_for writer do |f| %>
+      <% if writer.errors.any? %>
+      <div class="alert alert-warning alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <h3><strong>Error! </strong><%= pluralize(writer.errors.count, "error") %> prohibited this writer from being saved:</h3>
+          <ul>
+          <% writer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %><br />
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div><br />
-
-  <div class="field">
-    <%= f.label :publication %><br />
-    <%= f.text_field :publication, autofocus: true %>
-  </div><br />
-
-  <div class="field">
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio, size: "80x10", placeholder: "Minimum 100 characters", autofocus: true %>
-  </div><br />
-
-  <% if writer.new_record? %>
-    <h3>Add a review for this critic</h3>
-
-    <%= f.fields_for :reviews do |rf| %>
-      <div class="select">
-        <%= rf.label :genre %><br />
-        <%= rf.collection_check_boxes :genre_ids, Genre.all, :id, :genre_name %>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
       </div><br />
 
       <div class="field">
-        <%= rf.label :title %><br />
-        <%= rf.text_field :title %>
+        <%= f.label :publication %><br />
+        <%= f.text_field :publication, autofocus: true %>
       </div><br />
 
       <div class="field">
-        <%= rf.label :year %><br />
-        <%= rf.text_field :year %>
+        <%= f.label :bio %><br />
+        <%= f.text_area :bio, size: "80x10", placeholder: "Minimum 100 characters", autofocus: true %>
       </div><br />
 
-      <div class="field">
-        <%= rf.label :date_published %><br />
-        <%= rf.text_field :date_published %>
-      </div><br />
+      <% if writer.new_record? %>
+        <h3 class="title">Add a review for this critic</h3>
 
-      <div class="field">
-        <%= rf.label :content %><br />
-        <%= rf.text_area :content, placeholder: "Minimum 500 characters", size: "80x30" %>
+        <%= f.fields_for :reviews do |rf| %>
+
+          <div class="genre_select">
+            <%= rf.label :genres %><br />
+            <%= rf.collection_check_boxes(:genre_ids, Genre.all, :id, :genre_name) do |g| %>
+              <%= g.label class: "label-checkbox" do %>
+                <%= g.check_box + g.text %>
+              <% end %>
+            <% end %>
+          </div><br />
+
+          <div class="field">
+            <%= f.label :poster %> (Poster on view)<br />
+            <%= f.file_field :image, autofocus: true %>
+          </div><br />
+
+          <div class="field">
+            <%= f.label :banner %> (Banner on index)<br />
+            <%= f.file_field :banner, autofocus: true %>
+          </div><br />
+
+          <div class="field">
+            <%= rf.label :title %><br />
+            <%= rf.text_field :title %>
+          </div><br />
+
+          <div class="field">
+            <%= rf.label :year %><br />
+            <%= rf.text_field :year %>
+          </div><br />
+
+          <div class="field">
+            <%= rf.label :date_published %><br />
+            <%= rf.text_field :date_published %>
+          </div><br />
+
+          <div class="field">
+            <%= rf.label :content %><br />
+            <%= rf.text_area :content, placeholder: "Minimum 500 characters", size: "80x30" %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Submit" %>
       </div>
     <% end %>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Submit" %>
   </div>
-<% end %>
+</body>

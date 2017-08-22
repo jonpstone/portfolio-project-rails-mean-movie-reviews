@@ -1,29 +1,40 @@
-<% provide(:title, "New Genre | Mean Review") %>
+<head>
+  <% provide(:title, "New Genre | Mean Review") %>
+  <style>
+    #overflow {overflow: hidden;}
+  </style>
+</head>
+<body>
+  <div id="overflow">
+    <div class="interface">
 
-<br /><h2 class="title">New Genre</h2><br />
+      <br /><h2 class="title">New Genre</h2><br />
 
-<%= form_for @genre do |f| %>
-  <% if @genre.errors.any? %>
-    <div id="error_explanation">
-      <h2 style="color:red;"><%= pluralize(@genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
-      <ul>
-      <% @genre.errors.full_messages.each do |msg| %>
-        <li style="color:red;"><%= msg %></li>
+      <%= form_for @genre do |f| %>
+        <% if @genre.errors.any? %>
+          <div id="error_explanation">
+            <h2 style="color:red;"><%= pluralize(@genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
+            <ul>
+            <% @genre.errors.full_messages.each do |msg| %>
+              <li style="color:red;"><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :genre_name %><br />
+          <%= f.text_field :genre_name, autofocus: true %>
+        </div><br />
+
+        <div class="actions">
+          <%= f.submit "Submit" %>
+        </div><br />
       <% end %>
-      </ul>
+
+      <div class="links">
+        <%= link_to 'Cancel', :back %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :genre_name %><br />
-    <%= f.text_field :genre_name, autofocus: true %>
-  </div><br />
-
-  <div class="actions">
-    <%= f.submit "Submit" %>
   </div>
-<% end %>
-
-<div class="links">
-  <%= link_to 'Cancel', :back %>
-</div>
+</body>

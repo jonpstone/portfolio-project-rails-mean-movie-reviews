@@ -1,47 +1,51 @@
-<%= form_for user do |f| %>
-  <% if user.errors.any? %>
-    <div class="alert alert-warning alert-dismissable">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <h3><strong>Warning! </strong><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h3>
-      <ul>
-      <% user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %><br />
-      </ul>
-    </div>
-  <% end %>
+<body>
+  <div class="interface">
+    <%= form_for user do |f| %>
+      <% if user.errors.any? %>
+        <div class="alert alert-warning alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <h3><strong>Error! </strong><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h3>
+          <ul>
+          <% user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %><br />
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="check_box">
-    <%= f.label :admin %>
-    <%= f.check_box :admin %><br />
-  </div><br />
+      <div class="check_box">
+        <%= f.label :admin %>
+        <%= f.check_box :admin %><br />
+      </div><br />
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div><br />
+      <div class="field">
+        <%= f.label :username %><br />
+        <%= f.text_field :username, autofocus: true %>
+      </div><br />
 
-  <div class="field">
-    <%= f.label :hometown %><br />
-    <%= f.text_field :hometown, autofocus: true %>
-  </div><br />
+      <div class="field">
+        <%= f.label :hometown %><br />
+        <%= f.text_field :hometown, autofocus: true %>
+      </div><br />
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div><br />
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div><br />
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div><br />
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div><br />
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div><br />
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div><br />
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div><br />
-<% end %>
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div><br />
+    <% end %>
+  </div>
+</body>

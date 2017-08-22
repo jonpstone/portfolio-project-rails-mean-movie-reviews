@@ -1,10 +1,15 @@
-<% provide(:title, "Edit #{@review.title} | Mean Review") %>
+<head>
+  <% provide(:title, "Edit #{@review.title} | Mean Review") %>
+</head>
+<body>
+  <div class="interface">
+    <br /><h2 class="title"><%= "Edit: #{@review.title} (#{@review.year})" %></h2><br />
 
-<br /><h2 class="title"><%= "Edit: #{@review.title} (#{@review.year})" %></h2><br />
+    <%= render partial: 'form', locals: { review: @review } %><br />
 
-<%= render partial: 'form', locals: { review: @review } %><br />
-
-<div class="links">
-  <%= link_to "Delete", @review, method: :delete, data: { confirm: "Are you sure?" } %> |
-  <%= link_to 'Cancel', :back %>
-</div>
+    <div class="links">
+      <%= link_to "Delete", @review, method: :delete, data: { confirm: "Are you sure?" } %> |
+      <%= link_to 'Cancel', :back %>
+    </div>
+  </div>
+</body>
