@@ -22,10 +22,11 @@
     </div><br />
 
     <div class="movies">
-      <%= "#{@writer.name}'s Reviews" %><br />
-      <% @writer.review_list.each do |movie| %>
+      <h4 class="title">Recent Reviews</h4><br />
+      <% @writer.reviews.last_five_reviews.each do |movie| %>
         <%= link_to movie.title, writer_review_path(movie.writer, movie) %> |
       <% end %>
+      <%= link_to "SEE ALL",  writer_reviews_path(@writer) %>
     </div><br />
 
     <div class="back">

@@ -47,16 +47,6 @@
         </div><br />
 
         <div class="field">
-          <%= f.label :poster %> (Poster on view)<br />
-          <%= f.file_field :image, autofocus: true %>
-        </div><br />
-
-        <div class="field">
-          <%= f.label :banner %> (Banner on index)<br />
-          <%= f.file_field :banner, autofocus: true %>
-        </div><br />
-
-        <div class="field">
           <%= rf.label :title %><br />
           <%= rf.text_field :title %>
         </div><br />
@@ -74,7 +64,12 @@
         <div class="field">
           <%= rf.label :content %><br />
           <%= rf.text_area :content, placeholder: "Minimum 500 characters", size: "80x30" %>
-        </div>
+        </div><br />
+
+        <div class="field">
+          <%= rf.label :excerpt %><br />
+          <%= rf.text_field :excerpt, size: "80x40", autofocus: true %>
+        </div><br />
       <% end %>
     <% end %>
 

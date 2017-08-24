@@ -1,6 +1,6 @@
 class WritersController < ApplicationController
   before_action :authorize_user, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_writer, only: [:show, :edit, :update, :destroy]
+  before_action :set_writer, only: [:index, :show, :edit, :update, :destroy]
 
   def index
     @writers = Writer.order(:name)
@@ -17,7 +17,8 @@ class WritersController < ApplicationController
   def create
     @writer = Writer.new(writer_params)
     if @writer.save
-      redirect_to @writer, notice: "Critic created"
+      redirect_to edit_review_path(@writer.reviews.last),
+      notice: "Critic created, please upload poster and banner below"
     else
       render :new
     end

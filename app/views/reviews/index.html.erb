@@ -1,0 +1,15 @@
+<head>
+  <% provide(:title, "#{@writer.name}'s Reviews | Mean Review") %>
+</head>
+<body>
+  <div class="interface">
+    <br /><h2 class="title"><%= "#{@writer.name}'s Reviews" %></h2><br />
+
+    <div class="list">
+      <% @reviews.ordered.each do |movie| %>
+        <%= link_to movie.title, writer_review_path(movie.writer, movie) %> |
+        <%= movie.year %><br />
+      <% end %>
+    </div>
+  </div>
+</body>

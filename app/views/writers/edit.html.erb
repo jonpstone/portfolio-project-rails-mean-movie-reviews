@@ -9,7 +9,7 @@
 
     <div class="links">
       <% if current_user.try(:admin?) %>
-        <%= link_to "Delete", @writer, method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Delete", @writer, method: :delete, data: { confirm: "Are you sure?" } %> |
       <% end %>
       <%= link_to 'Cancel', :back %>
     </div>

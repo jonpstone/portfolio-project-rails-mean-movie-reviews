@@ -1,7 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :authorize_user, except: :show
-  before_action :set_writer, only: [:new, :edit]
+  before_action :set_new_writer, only: [:new, :edit]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_writer, only: :index
+
+  def index
+    @reviews = Review.where(writer_id: params[:writer_id])
+  end
 
   def show
   end
@@ -46,6 +51,10 @@ class ReviewsController < ApplicationController
     end
 
     def set_writer
+      @writer = Writer.find(params[:writer_id])
+    end
+
+    def set_new_writer
       @review = Review.new(writer_id: params[:writer_id])
     end
 end
