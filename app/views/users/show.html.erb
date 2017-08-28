@@ -4,14 +4,14 @@
 <body>
   <div class="interface">
     <div class="admin">
-      <br /><h2 style="color: RebeccaPurple;"><%= "ADMIN" if current_user.admin %></h2>
+      <br /><h2 style="color: RebeccaPurple;"><%= "ADMIN" if @user.admin %></h2>
     </div>
 
     <h2 class="title">User Profile</h2><br />
 
     <div class="info">
       Userame: <b><%= @user.username %></b>
-      <% if logged_in? && current_user.provider == 'facebook' %>
+      <% if @user.provider == 'facebook' %>
         (Signed in with <%= @user.provider.capitalize %>) |
       <% end %>
       <% unless @user.hometown.nil? %>
@@ -20,7 +20,7 @@
     </div><br />
 
     <div class="link">
-      <% if current_user.provider.nil? %>
+      <% if @user.provider.nil? %>
         <%= link_to 'Edit', edit_user_path(@user) %> |
       <% end %>
       <%= link_to 'Delete', @user, method: :delete, data: { confirm: "Are you sure?" } %> |

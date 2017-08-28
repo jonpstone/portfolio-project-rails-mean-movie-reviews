@@ -8,7 +8,7 @@ Specs:
 - [x] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
 **A 'Review' 'belongs_to' a 'Writer'.**
 - [x] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)
-**A 'Review' 'has_many :genres, through: :review_genres'.**  
+**A 'Review' 'has_many :genres, through: :review_genres'.**
 - [ ] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 **Minimum length required for passwords content, etc., presence and uniqueness e.g. `usernames`'s and `review` `title`'s.**
