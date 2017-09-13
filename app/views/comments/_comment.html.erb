@@ -5,7 +5,7 @@
 
   <%= form_for [comment, Comment.new] do |f| %>
     <%= f.text_area :body, placeholder: "Add a Reply" %><br/>
-    <%= f.submit "Reply"  %>
+    <%= f.submit "Reply", class: 'btn btn-default' %>
   <% end %>
 
   <ul>

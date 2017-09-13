@@ -1,6 +1,7 @@
 <head>
   <style>
     body {min-height: 2000px; padding-top: 51px;}
+    #searchbox {padding-top: 19px;}
     .navbar li a {
       line-height: 40px;
       margin: 0;
@@ -52,6 +53,13 @@
               <li><%= link_to "Sign in", signin_path %></li>
               <li><%= link_to "Sign up", new_user_path %></li>
             <% end %>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li>
+            <li id="searchbox">
+              <%= form_tag('/search', :method => "get", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search Reviews" %>
+                <%= submit_tag "Submit", :name => nil, class: 'btn btn-default btn-sm' %>
+              <% end %>
+            </li>
           </ul>
         </div>
       </div>

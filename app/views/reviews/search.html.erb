@@ -1,0 +1,19 @@
+<head>
+  <% provide(:title, "Results for #{params[:search]} | Mean Review") %>
+</head>
+<body>
+  <div class="interface">
+    <br /><h2 class="title"><%= "Results for '#{params[:search]}'" %></h2><br />
+
+    <div class="list">
+      <% if @reviews.present? %>
+        <% @reviews.each do |movie| %>
+          <%= link_to movie.title, review_path(movie) %> |
+          <%= movie.year %><br />
+        <% end %>
+      <% else %>
+        <p>There are no reviews containing the term(s) <%= params[:search] %>.</p>
+      <% end %>
+    </div>
+  </div>
+</body>

@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authorize_user, except: :show
+  before_action :authorize_user, except: [:show, :search]
   before_action :set_new_writer, only: [:new, :edit]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_writer, only: :index
@@ -37,6 +37,16 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     redirect_to home_admin_area_path, alert: "Review deleted"
+  end
+
+  def search
+    if params[:search]
+      @reviews = Review.search(params[:search]).order("created_at DESC")
+      render :search
+    else
+      @reviews = Review.all.order('created_at DESC')
+      render :search
+    end
   end
 
   private

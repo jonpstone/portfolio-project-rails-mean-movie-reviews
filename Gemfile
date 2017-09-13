@@ -21,6 +21,7 @@ gem 'omniauth-facebook'
 gem 'mini_magick'
 gem 'carrierwave', '~> 1.0'
 gem 'seed_dump'
+gem 'simple_form'
 
 group :development, :test do
   gem "rspec-rails"

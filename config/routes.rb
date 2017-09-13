@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/sessions/create', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
 
+  get '/search', to: 'reviews#search'
+
   resources :users, :genres
 
   resources :comments do

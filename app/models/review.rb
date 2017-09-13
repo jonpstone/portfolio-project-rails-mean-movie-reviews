@@ -36,4 +36,8 @@ class Review < ApplicationRecord
   def self.ordered
     order(:title).all
   end
+
+  def self.search(query)
+    where("title LIKE :query OR content LIKE :query", query: "%#{query}%")
+  end
 end
