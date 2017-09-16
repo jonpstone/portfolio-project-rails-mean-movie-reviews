@@ -11,6 +11,7 @@
         <%= critic.publication %> |
         <b>Last Review <%= link_to critic.lastest_review.title, review_path(critic.lastest_review) %></b><br /><br />
       <% end %>
-    </div>
+    </div><br />
+    <%= link_to 'Back', :back, class: 'btn btn-default' %>
   </div>
 </body>

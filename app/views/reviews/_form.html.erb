@@ -17,61 +17,51 @@
       </div>
     <% end %>
 
-    <div class="genre_select">
       <%= f.label :genres %><br />
       <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :genre_name) do |g| %>
         <%= g.label class: "label-checkbox" do %>
-          <%= g.check_box + g.text %>
+          <%= g.check_box + g.text %><br /><br />
         <% end %>
-      <% end %>
-    </div><br />
+      <% end %><br />
 
-    <% if !params[:writer_id] %>
-      <div class="writer_select">
-        <%= f.label :writer %></li>
-        <%= f.collection_select :writer_id, Writer.all, :id, :name, prompt: true %>
-      </div><br />
-    <% else %>
-      <%= f.hidden_field :writer_id %>
-    <% end %>
-
-    <div class="field">
       <%= f.label :poster %> (Poster on review page 200x300)<br />
-      <%= f.file_field :image, autofocus: true %>
-    </div><br />
+      <%= f.file_field :image, autofocus: true %><br />
 
-    <div class="field">
       <%= f.label :banner %> (Banner on landing page 1920x1200)<br />
-      <%= f.file_field :banner, autofocus: true %>
-    </div><br />
+      <%= f.file_field :banner, autofocus: true %><br />
 
-    <div class="field">
-      <%= f.label :title %><br />
-      <%= f.text_field :title, autofocus: true %>
-    </div><br />
+    <div class="row">
+      <div class="col-lg-6">
+        <% if !params[:writer_id] %>
+            <%= f.label :writer %></li>
+            <%= f.collection_select :writer_id, Writer.all, :id, :name, {prompt: true}, {class: "form-control"} %><br />
+        <% else %>
+          <%= f.hidden_field :writer_id %>
+        <% end %>
 
-    <div class="field">
-      <%= f.label :year %><br />
-      <%= f.text_field :year, autofocus: true %>
-    </div><br />
+        <%= f.label :title %><br />
+        <%= f.text_field :title, autofocus: true, class: 'form-control' %><br />
 
-    <div class="field">
-      <%= f.label :date_published %><br />
-      <%= f.text_field :date_published, autofocus: true %>
-    </div><br />
+        <%= f.label :year %><br />
+        <%= f.text_field :year, autofocus: true, class: 'form-control', placeholder: "Year of movie's release, e.g. 1991" %><br />
 
-    <div class="field">
-      <%= f.label :content %><br />
-      <%= f.text_area :content, size: "80x50", placeholder: "Minimum 500 characters", autofocus: true %>
-    </div><br />
+        <%= f.label :date_published %><br />
+        <%= f.text_field :date_published, autofocus: true, class: 'form-control', placeholder: "Date of article, e.g. May 1, 1991" %><br />
 
-    <div class="field">
-      <%= f.label :excerpt %><br />
-      <%= f.text_field :excerpt, size: "80x40", autofocus: true %>
-    </div><br />
+        <%= f.label :content %><br />
+        <%= f.text_area :content, size: "80x30", placeholder: "Minimum 500 characters", autofocus: true, class: 'form-control' %><br />
 
-    <div class="actions">
-      <%= f.submit class: 'btn btn-default' %>
+        <%= f.label :excerpt %><br />
+        <%= f.text_field :excerpt, size: "80x40", autofocus: true, class: 'form-control', placeholder: "Choose a headline for the movie" %><br />
+
+        <div class="actions">
+          <% if current_user.try(:admin?) && !review.new_record? %>
+            <%= link_to "Delete", @review, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger pull-left' %>
+          <% end %>
+          <%= link_to 'Back', :back, class: 'btn btn-default' %>
+          <%= f.submit class: 'btn btn-default' %>
+        </div>
+      </div>
     </div>
   <% end %>
 </body>

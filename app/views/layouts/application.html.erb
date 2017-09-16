@@ -10,7 +10,8 @@
         body {background-image: url(/assets/zz-wallpaper.jpg); background-size: cover;}
         .title {font-family: "Impact", Arial, sans-serif;}
         .message {}
-        .interface {height: 100%; overflow: hidden; margin-left: 75px; margin-top: 20px;}
+        .interface {height: 100%; overflow: hidden; margin-left: 211px; margin-top: 20px; padding-bottom: 100px}
+        .actions a {float:left; margin-right: 20px;}
     </style>
     <link rel="icon" href="http://www.iconsplace.com/icons/preview/white/film-reel-256.png">
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Mean Review" %>">
@@ -23,7 +24,7 @@
     <header>
       <%= render 'layouts/header' %>
     </header>
-    <main role="main" style="width:1250px; margin:0 auto;">
+    <main role="main" style="width:1600px; margin:0 auto;">
       <div class="message">
         <% if flash[:error] %>
         <div class="alert alert-danger">

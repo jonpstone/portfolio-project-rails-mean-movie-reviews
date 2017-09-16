@@ -19,12 +19,12 @@
       <% end %>
     </div><br />
 
-    <div class="link">
+    <div class="actions">
+      <%= link_to 'Delete', @user, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger pull-left' %>
       <% if @user.provider.nil? %>
-        <%= link_to 'Edit', edit_user_path(@user) %> |
+        <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-default' %> 
       <% end %>
-      <%= link_to 'Delete', @user, method: :delete, data: { confirm: "Are you sure?" } %> |
-      <%= link_to 'Back', :back %>
+      <%= link_to 'Back', :back, class: 'btn btn-default' %>
     </div>
   </div>
 </body>

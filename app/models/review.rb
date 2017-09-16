@@ -38,6 +38,6 @@ class Review < ApplicationRecord
   end
 
   def self.search(query)
-    where("title LIKE :query", query: "%#{query}%")
+    where("title LIKE :query OR content LIKE :query", query: "%#{query}%")
   end
 end

@@ -7,9 +7,5 @@
 
     <%= render partial: 'form', locals: { review: @review } %><br />
 
-    <div class="links">
-      <%= link_to "Delete", @review, method: :delete, data: { confirm: "Are you sure?" } %> |
-      <%= link_to 'Cancel', :back %>
-    </div>
   </div>
 </body>

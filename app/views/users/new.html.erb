@@ -7,12 +7,10 @@
 
     <%= render partial: 'form', locals: { user: @user } %>
 
+    <h3 class="title">Or</h3><br />
+
     <div class="oauth">
       <%= link_to(image_tag("/assets/facebook_register.png", size: "257x53"), "auth/facebook") %>
     </div><br />
-
-    <div class="links">
-      <%= link_to 'Cancel', :back %>
-    </div>
   </div>
 </body>

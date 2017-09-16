@@ -17,32 +17,30 @@
       <%= f.check_box :admin %><br />
     </div><br />
 
-    <div class="field">
-      <%= f.label :username %><br />
-      <%= f.text_field :username, autofocus: true %>
-    </div><br />
+    <div class="row">
+      <div class="col-lg-4">
+        <%= f.label :username %><br />
+        <%= f.text_field :username, autofocus: true, class: 'form-control' %><br />
 
-    <div class="field">
-      <%= f.label :hometown %><br />
-      <%= f.text_field :hometown, autofocus: true %>
-    </div><br />
+        <%= f.label :hometown %><br />
+        <%= f.text_field :hometown, autofocus: true, class: 'form-control' %><br />
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div><br />
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %><br />
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div><br />
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %><br />
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div><br />
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %><br />
+      </div>
+    </div>
 
     <div class="actions">
+      <% if current_user.try(:admin?) && !review.new_record? %>
+        <%= link_to "Delete", @user, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger pull-left' %>
+      <% end %>
+      <%= link_to 'Back', :back, class: 'btn btn-default' %>
       <%= f.submit class: 'btn btn-default' %>
     </div><br />
   <% end %>

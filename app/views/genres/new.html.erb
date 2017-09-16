@@ -23,18 +23,17 @@
           </div>
         <% end %>
 
-        <div class="field">
-          <%= f.text_field :genre_name, autofocus: true %>
+        <div class="row">
+          <div class="col-lg-4">
+            <%= f.text_field :genre_name, autofocus: true, class: 'form-control' %>
+          </div>
         </div><br />
 
         <div class="actions">
           <%= f.submit class: 'btn btn-default' %>
+          <%= link_to 'Cancel', :back, class: 'btn btn-default' %>
         </div><br />
       <% end %>
-
-      <div class="links">
-        <%= link_to 'Cancel', :back %>
-      </div>
     </div>
   </div>
 </body>

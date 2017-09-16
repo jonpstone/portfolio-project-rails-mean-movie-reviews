@@ -4,10 +4,7 @@
 <body>
   <div class="interface">
     <div class="title_delete">
-      <br /><h2 class="title"><%= @genre.genre_name %></h2>
-      <% if current_user.try(:admin?) %>
-        <%= link_to "Delete Genre", @genre, method: :delete, data: { confirm: "Are you sure?" } %>
-      <% end %><br /><br />
+      <br /><h2 class="title"><%= @genre.genre_name %></h2><br /><br />
     </div>
 
     <div class="list">
@@ -17,6 +14,12 @@
         <% if current_user.try(:admin?) %>
           | <%= link_to "Delete", movie, method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %><br /><br />
+      <% end %>
+    </div><br />
+
+    <div class="actions">
+      <% if current_user.try(:admin?) %>
+        <%= link_to "Delete Genre", @genre, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
       <% end %>
     </div>
   </div>
