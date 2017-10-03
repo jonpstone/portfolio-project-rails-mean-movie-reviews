@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authorize_user, except: [:show, :search]
+  before_action :authorize_user, except: [:index, :show, :search]
   before_action :set_new_writer, only: [:new, :edit]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_writer, only: :index
