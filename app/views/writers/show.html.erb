@@ -8,8 +8,8 @@
     <div class="info">
       Publication <b><%= @writer.publication %></b> |
       Number of Reviews <b><%= @writer.reviews.count %></b> |
-      Latest Review <%= link_to @writer.lastest_review.title, writer_review_path(@writer, @writer.lastest_review) %>
-      (<%= @writer.lastest_review.year %>)
+      Latest Review <%= link_to @writer.latest_review.title, review_path(@writer, @writer.latest_review) %>
+      (<%= @writer.latest_review.year %>)
       <% if current_user.try(:admin?) %>
         | <%= link_to "Add a review", new_writer_review_path(@writer) %>
         | <%= link_to "Edit", edit_writer_path(@writer) %>

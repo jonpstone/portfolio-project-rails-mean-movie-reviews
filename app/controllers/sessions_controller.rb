@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @reviews = Review.order("created_at DESC").first(5)
     if auth_hash = request.env["omniauth.auth"]
       user = User.find_or_create_by_omniauth(auth_hash)
       session[:user_id] = user.id

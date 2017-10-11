@@ -6,7 +6,7 @@ class Writer < ApplicationRecord
   validates :name, :publication, length: { in: 3..25 }
   validates :bio, length: { in: 100..3000 }
 
-  def lastest_review
+  def latest_review
     self.reviews.order("created_at DESC").first
   end
 
