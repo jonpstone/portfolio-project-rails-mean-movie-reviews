@@ -58,7 +58,7 @@
           <tr>
             <td><%= link_to genre.genre_name, genre_path(genre) %></td>
             <% if current_user.try(:admin?) %>
-              <td><%= link_to "Delete", genre, method: :delete, data: { confirm: "Are you sure?" } %></td>
+              <td><%= link_to "Edit", edit_genre_path(genre) %></td>
             <% end %>
           </tr>
         <% end %>

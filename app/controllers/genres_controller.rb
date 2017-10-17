@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :set_genre, only: [:show, :destroy]
+  before_action :set_genre, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user, except: :show
 
   def show
@@ -15,6 +15,17 @@ class GenresController < ApplicationController
       redirect_to @genre, notice: "Genre created"
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @genre.update(genre_params)
+      redirect_to @genre, notice: "Genre updated"
+    else
+      render :edit
     end
   end
 
