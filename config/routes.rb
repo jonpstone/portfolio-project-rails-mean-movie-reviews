@@ -11,10 +11,6 @@ Rails.application.routes.draw do
 
   resources :users, :genres
 
-  resources :comments do
-    resources :comments
-  end
-
   resources :reviews do
     resources :comments
   end

@@ -32,15 +32,26 @@
     </div>
 
     <div class="comments" align="left">
-      <h3>Comments</h3>
-        <%= form_for [@review, Comment.new] do |f| %>
-          <%= f.text_area :body, placeholder: "Add a comment" %><br/>
-          <%= f.submit "Add Comment", class: 'btn btn-default' %><br /><br />
+      <p>
+        <%= link_to "Comments", review_comments_path(@review), class: "show_comments" %>
+      </p>
+      <section id="comments-sections">
+        <ol id="comments">
+          <%= render: @comments, locals: { comment: @comment }%>
+        </ol>
+        <%= form_for [@review, @review.comments.new] do |f| %>
+          <fieldset>
+            <ol>
+              <li>
+                <%= f.text_area :body, rows: 2, cols: 60, placeholder: "Write a comment..."%>
+              </li>
+              <li>
+                <%= f.submit "Add Comment", class: 'btn btn-default' %><br /><br />
+              </li>
+            </ol>
+          </fieldset>
         <% end %>
-
-      <ul>
-        <%= render(partial: 'comments/comment', collection: @review.comments) %>
-      </ul>
+      </section>
     </div>
 
     <div class="back">

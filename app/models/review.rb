@@ -2,7 +2,7 @@ class Review < ApplicationRecord
   belongs_to :writer, inverse_of: :reviews
   has_many :review_genres
   has_many :genres, through: :review_genres
-  has_many :comments, as: :commentable
+  has_many :comments
 
   validates_presence_of :title, :content, :year, :date_published
   validates_uniqueness_of :title, :content

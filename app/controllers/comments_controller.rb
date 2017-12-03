@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
-before_action :find_commentable
+before_action :set_review
+
+  def index
+    @comments = @review.comments
+  end
 
   def new
     @comment = Comment.new
@@ -24,8 +28,7 @@ before_action :find_commentable
       params.require(:comment).permit(:body)
     end
 
-    def find_commentable
-      @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
-      @commentable = Review.find_by_id(params[:review_id]) if params[:review_id]
+    def set_review
+      @review = Review.find(params[:review_id])
     end
 end
