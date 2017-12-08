@@ -3,23 +3,13 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @review.comments
-      render 'index.html', layout: false}
-    end
-  end
-
-  def create
-    @comment = @review.comments.build(comments_params)
-    if @comment.save
-      render 'create.js', :layout => false
-    else
-      render "posts/show"
-    end
+    render 'comments/index', layout: false
   end
 
 private
 
     def set_review
-      @review = Post.find(params[:review_id])
+      @review = Review.find(params[:review_id])
     end
 
     def comments_params

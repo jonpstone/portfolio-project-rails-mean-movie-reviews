@@ -3,8 +3,8 @@ $(function(){
     $.ajax({
       method: 'GET',
       url: this.href,
-    }).done(function(data){
-      console.log(data)
+    }).done(function(resp){
+      $('div.comments').html(resp)
     }
     e.preventDefault();
   })
