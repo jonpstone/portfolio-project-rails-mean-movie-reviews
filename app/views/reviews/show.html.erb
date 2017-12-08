@@ -31,28 +31,9 @@
       <% end %>
     </div>
 
-    <div class="comments" align="left">
-      <p>
-        <%= link_to "Comments", review_comments_path(@review), class: "show_comments" %>
-      </p>
-      <section id="comments-sections">
-        <ol id="comments">
-          <%= render: @comments, locals: { comment: @comment }%>
-        </ol>
-        <%= form_for [@review, @review.comments.new] do |f| %>
-          <fieldset>
-            <ol>
-              <li>
-                <%= f.text_area :body, rows: 2, cols: 60, placeholder: "Write a comment..."%>
-              </li>
-              <li>
-                <%= f.submit "Add Comment", class: 'btn btn-default' %><br /><br />
-              </li>
-            </ol>
-          </fieldset>
-        <% end %>
-      </section>
-    </div>
+    <p>
+      <%= link_to "Load Comments", review_comments_path(@review), class: "load_comments", remote: true %>
+    </p>
 
     <div class="back">
       <%= link_to 'Back', :back, class: 'btn btn-default' %>

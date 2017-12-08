@@ -1,34 +1,28 @@
 class CommentsController < ApplicationController
-before_action :set_review
+  before_action :set_review
 
   def index
     @comments = @review.comments
-  end
-
-  def new
-    @comment = Comment.new
+      render 'index.html', layout: false}
+    end
   end
 
   def create
-    @comment = @commentable.comments.new comment_params
-    if logged_in?
-      if @comment.save
-        redirect_to :back, notice: 'Your comment was successfully posted'
-      else
-        redirect_to :back, error: "An error occured, comment not posted"
-      end
+    @comment = @review.comments.build(comments_params)
+    if @comment.save
+      render 'create.js', :layout => false
     else
-      redirect_to :back, alert: "You must sign up or log in to comment!"
+      render "posts/show"
     end
   end
 
-  private
-
-    def comment_params
-      params.require(:comment).permit(:body)
-    end
+private
 
     def set_review
-      @review = Review.find(params[:review_id])
+      @review = Post.find(params[:review_id])
+    end
+
+    def comments_params
+      params.require(:comment).permit(:content)
     end
 end
