@@ -6,6 +6,9 @@ $(function(){
     // }).success(function(resp){
     //   $('div.comments').html(resp)
     // }
+    $.get(this.href).success(function(resp){
+      $(div.comments).html(resp)
+    })
     e.preventDefault();
   })
 })
