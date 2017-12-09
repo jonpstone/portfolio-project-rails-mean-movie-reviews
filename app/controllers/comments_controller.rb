@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @review.comments
-    render layout: false
+    render json: @comments
   end
 
 private
