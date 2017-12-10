@@ -1,0 +1,7 @@
+<ol>
+  <% if @comments %>
+    <% @comments.each do |comment| %>
+      <li><%= comment.content %></li>
+    <% end %>
+  <% end %>
+</ol>
