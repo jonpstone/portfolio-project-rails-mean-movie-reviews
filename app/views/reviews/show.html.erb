@@ -2,7 +2,7 @@
   <% provide(:title, "#{@review.title} | Mean Review") %>
   <style>
     .poster {margin-right: 1em; margin-bottom: 1em;}
-    .content {margin-top: 5px;}
+    .content {margin-top: 8px;}
     .content {font-size: 16px;}
   </style>
 </head>
@@ -31,20 +31,17 @@
       <% end %>
     </div>
 
-    <!-- <p>
-      <%= link_to "Load Comments", review_comments_path(@review), class: "load_comments", remote: true %>
-    </p> -->
+    <div class='comments'>
+      <%= render 'comments/comments' %>
+    </div>
 
-    <%= render 'comments/comments' %>
+    <%= form_for([@review, @comment]) do |f|  %>
+      <%= f.text_area :content %>
 
-    <%= form_for(@comment, url: "") do |f| %>
-      <% f.text_area :content %>
-
-      <% f.submit %>
+      <p><%= f.submit %></p>
     <% end %>
 
-    <!-- <div class='comments'>
-    </div> -->
+
 
     <div class="back">
       <%= link_to 'Back', :back, class: 'btn btn-default' %>

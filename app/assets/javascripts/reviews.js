@@ -31,4 +31,28 @@ $(function(){
 
     e.preventDefault();
   })
-})
+});
+
+$(function(){
+  $("#new_comment").on("submit", function(e){
+
+    url = this.action
+    console.log(url)
+    data = $(this).serialize();
+    };
+
+    // low level
+    $.ajax({
+      type: ($("input[name'=_method']").val() || this.method),
+      url: this.action
+      data: $(this).serialize(),
+      success: fucntion(resp){
+        $("#comment_content").val("");
+        var $ol = $("div.comments ol")
+        $ol.append(resp);
+      }
+    })
+
+    e.preventDefault();
+  })
+});

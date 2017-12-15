@@ -3,7 +3,20 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @review.comments
-    render json: @comments
+
+    respond_to do |format|
+      format.html {render 'index.html', layout: false}
+      format.js {render 'index.json', layout: false}
+    end
+  end
+
+  def create
+    @comment = @review.comments.build(comments_params)
+    if @comment.save
+      render 'comments/show', layout: false
+    else
+      render 'reviews/show', layout: false
+    end
   end
 
 private
