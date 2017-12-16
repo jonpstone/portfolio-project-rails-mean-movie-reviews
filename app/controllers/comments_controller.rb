@@ -3,10 +3,9 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @review.comments
-
     respond_to do |format|
-      format.html {render 'index.html', layout: false}
-      format.js {render 'index.json', layout: false}
+      format.html {render 'index.html', :layout => false}
+      format.js {render 'index.js', :layout => false}
     end
   end
 
@@ -15,11 +14,11 @@ class CommentsController < ApplicationController
     if @comment.save
       render 'comments/show', layout: false
     else
-      render 'reviews/show', layout: false
+      render "posts/show"
     end
   end
 
-private
+  private
 
     def set_review
       @review = Review.find(params[:review_id])
