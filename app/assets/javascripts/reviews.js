@@ -19,7 +19,7 @@ $(function(){
       data: $(this).serialize(),
       success: function(resp){
         $("#comment_content").val("");
-        var $ol = $("div.comments ol")
+        var $ol = $("div.comments ol");
         $ol.append(resp);
       }
     });
