@@ -27,7 +27,7 @@
       <%= image_tag(@review.image.url, class: 'poster', align: 'left') if @review.image %>
       <%= simple_format(@review.content) %>
       <% if @review.content.length < 1750 %>
-        <br />  <br /><br />  <br /><br />
+        <br /><br />  <br /><br />  <br /><br />
       <% end %>
     </div>
 
@@ -39,13 +39,15 @@
       <%= render 'comments/comments' %>
     </div>
 
-    <%= form_for([@review, @comment]) do |f|  %>
-      <%= f.text_area :content %>
+    <div>
+      <% if logged_in? %>
+        <%= form_for([@review, @comment]) do |f|  %>
+          <%= f.text_area :content %>
 
-      <p><%= f.submit %></p>
-    <% end %>
-
-
+          <p><%= f.submit %></p>
+        <% end %>
+      <% end %>
+    </div>
 
     <div class="back">
       <%= link_to 'Back', :back, class: 'btn btn-default' %>

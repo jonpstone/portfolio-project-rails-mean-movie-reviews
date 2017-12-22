@@ -1,7 +1,7 @@
-<ol>
+<ul>
   <% if @comments %>
     <% @comments.each do |comment| %>
-      <li><%= comment.content %></li>
+      <li><%= comment.content %></li><br />
     <% end %>
   <% end %>
-</ol>
+</ul>
