@@ -9,7 +9,7 @@ $(function(){
     })
     e.preventDefault();
   })
-
+  
   $("#new_comment").on("submit", function(e){
     $.ajax({
       type: ($("input[name='_method']").val() || this.method),
