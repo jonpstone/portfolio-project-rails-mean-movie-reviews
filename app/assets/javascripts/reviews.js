@@ -4,45 +4,36 @@ $(function(){
       var $ul = $("div.comments ul")
       $ul.html("")
       json.forEach(function(comment){
-        $ul.append("<li>" + comment.content + "</li>");
+        $ul.append("<li>" + comment.content + "</li><br>");
       })
     })
     e.preventDefault();
   })
-})
 
-$(function(){
   $("#new_comment").on("submit", function(e){
     $.ajax({
       type: ($("input[name='_method']").val() || this.method),
       url: this.action,
       data: $(this).serialize(),
-      success: function(r){
+      success: function(resp){
         $("#comment_content").val("");
         var $ul = $("div.comments ul");
-        $ul.append(r + "<br />");
+        debugger
+        $ul.append(resp + "<br />");
       }
     });
     e.preventDefault();
   })
-});
 
-var btnText;
-$(function(){
-  $('form').each(function(){
+  $('form').each(function(e){
     var $that = $(this);
       $(this).submit(function(){
-        var submitButton = $that.find("input[type='submit']");
-        btnText = $(submitButton).attr("value");
-
         $.ajax({
-          timeout: 2000,
           error: function(){
             alert("Comment failed to post...");
             $that.find("input[type='submit']").removeAttr('disabled');
           },
-          success: function(r){
-            $that.find("input[type='submit']").attr("value", btnText);
+          success: function(){
             $that.find("input[type='submit']").removeAttr('disabled');
           },
         })

@@ -3,10 +3,7 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @review.comments
-    respond_to do |format|
-      format.html {render 'index.html', layout: false}
-      format.js {render 'index.js', layout: false}
-    end
+    render json: @comments
   end
 
   def create
