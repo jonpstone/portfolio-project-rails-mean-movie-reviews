@@ -6,11 +6,12 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.where(writer_id: params[:writer_id])
+    render json: @reviews, layout: false
   end
 
   def show
     @comments = @review.comments
-    @comment = Comment.new  
+    @comment = Comment.new
   end
 
   def new

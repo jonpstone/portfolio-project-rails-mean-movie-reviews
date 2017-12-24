@@ -21,12 +21,13 @@
       <%= simple_format(@writer.bio) %>
     </div><br />
 
-    <div class="movies">
-      <h4 class="title">Recent Reviews</h4><br />
-      <% @writer.reviews.last_five_reviews.each do |movie| %>
-        <%= link_to movie.title, writer_review_path(movie.writer, movie) %> |
-      <% end %>
-      <%= link_to "SEE ALL",  writer_reviews_path(@writer) %>
+    <p>
+      <h4 class="title"><%= link_to "Show Reviews", writer_reviews_path(@writer), class: "show_reviews" %></h4>
+    </p><br />
+
+    <div class='movies'>
+      <ul>
+      </ul>
     </div><br />
 
     <div class="back">
