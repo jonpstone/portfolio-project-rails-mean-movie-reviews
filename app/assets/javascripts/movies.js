@@ -7,8 +7,8 @@ $(function(){
         var title = movie.title;
         var narrative = movie.content;
         var trunc = narrative.substring(0, 350);
-        var writer = movie.writer_id
-        var review = movie.id
+        var writer = movie.writer_id;
+        var review = movie.id;
         var linkText = "Read more";
         var url = writer + "/reviews/" + review
         $ul.append(
@@ -19,4 +19,4 @@ $(function(){
     })
     e.preventDefault();
   })
-})
+});
