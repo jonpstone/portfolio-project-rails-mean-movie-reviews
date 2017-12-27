@@ -24,14 +24,21 @@
 $(function(){
   $("a.show_reviews").on("click", function(e){
     $.get(this.href).success(function(json){
+
+      var $img = $("div.image");
       var $para = $("div.movies p");
+      var imgSrc = json[0].image.url;
       var firstMovieTitle = json[0].title;
       var firstMovieContent = json[0].content.substring(0, 500);
+
       $para.html("");
       $para.append(
         "<h4 class='title'>" + firstMovieTitle + "<h4>" + "\n" + firstMovieContent
       );
-
+      $img.html("");
+      $img.append(
+        '<img src= "' + imgSrc + '" style="float: left; padding-right: 20px; padding-bottom: 20px">'
+      );
     });
     e.preventDefault();
   });
