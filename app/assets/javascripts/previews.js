@@ -26,19 +26,27 @@ $(function(){
     $.get(this.href).success(function(json){
 
       var $img = $("div.image");
+      var $title = $("div.movie_title");
       var $para = $("div.movies p");
       var imgSrc = json[0].image.url;
       var firstMovieTitle = json[0].title;
       var firstMovieContent = json[0].content.substring(0, 500);
+      var linkText = "Read more";
+      var url = json[0].writer_id + "/reviews/1";
 
-      $para.html("");
-      $para.append(
-        "<h4 class='title'>" + firstMovieTitle + "<h4>" + "\n" + firstMovieContent
-      );
       $img.html("");
       $img.append(
         '<img src= "' + imgSrc + '" style="float: left; padding-right: 20px; padding-bottom: 20px">'
       );
+      $title.html("");
+      $title.append(
+        "<h3 class='title'>" + firstMovieTitle + "</h3>"
+      );
+      $para.html("");
+      $para.append(
+        firstMovieContent + "... " + "<strong>" + linkText.link(url) + "</strong></li><br>"
+      );
+
     });
     e.preventDefault();
   });
