@@ -15,4 +15,4 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require comments
-//= require movies
+//= require previews

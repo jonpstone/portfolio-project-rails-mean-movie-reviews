@@ -1,15 +1,15 @@
 $(function(){
   $("a.load_comments").on("click", function(e){
     $.get(this.href).success(function(json){
-      var $ul = $("div.comments ul")
-      $ul.html("")
+      var $ul = $("div.comments ul");
+      $ul.html("");
       json.forEach(function(comment){
         $ul.append("<li>" + comment.content + "</li><br>");
-      })
-    })
+      });
+    });
     e.preventDefault();
-  })
-  
+  });
+
   $("#new_comment").on("submit", function(e){
     $.ajax({
       type: ($("input[name='_method']").val() || this.method),
@@ -23,7 +23,7 @@ $(function(){
       }
     });
     e.preventDefault();
-  })
+  });
 
   $('form').each(function(e){
     var $that = $(this);
@@ -36,8 +36,8 @@ $(function(){
           success: function(){
             $that.find("input[type='submit']").removeAttr('disabled');
           },
-        })
+        });
       return false;
-    })
+    });
   });
-})
+});
