@@ -28,6 +28,9 @@ $(function(){
       var $img = $("div.image");
       var $title = $("div.movie_title");
       var $para = $("div.movies p");
+      var $prev = $("div.prev");
+      var $next = $("div.next");
+
       var imgSrc = json[0].image.url;
       var firstMovieTitle = json[0].title;
       var firstMovieContent = json[0].content.substring(0, 500);
@@ -46,7 +49,14 @@ $(function(){
       $para.append(
         firstMovieContent + "... " + "<strong>" + linkText.link(url) + "</strong></li><br>"
       );
-
+      $prev.html("");
+      $prev.append(
+        '<img src="/assets/prev.png "width="100" height="100">'
+      );
+      $next.html("");
+      $next.append(
+        '<img src="/assets/next.png "width="100" height="100">'
+      );
     });
     e.preventDefault();
   });
