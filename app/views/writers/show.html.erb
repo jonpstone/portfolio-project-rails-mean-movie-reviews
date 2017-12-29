@@ -3,7 +3,6 @@
   <style>
     ul {list-style-type: none; padding-left: 0px;}
     .back {margin-bottom: 5em; float: left; clear: both;}
-    .movies p {width: 500;}
   </style>
 </head>
 <body>
@@ -12,9 +11,7 @@
 
     <div class="info">
       Publication <b><%= @writer.publication %></b> |
-      Number of Reviews <b><%= @writer.reviews.count %></b> |
-      Latest Review <%= link_to @writer.latest_review.title, review_path(@writer, @writer.latest_review) %>
-      (<%= @writer.latest_review.year %>)
+      Number of Reviews <b><%= @writer.reviews.count %></b>
       <% if current_user.try(:admin?) %>
         | <%= link_to "Add a review", new_writer_review_path(@writer) %>
         | <%= link_to "Edit", edit_writer_path(@writer) %>
@@ -26,16 +23,11 @@
       <%= simple_format(@writer.bio) %>
     </div><br />
 
-    <p>
-      <h4 class="title"><%= link_to "Show Reviews", writer_reviews_path(@writer), class: "show_reviews" %></h4>
-    </p><br />
+    <h4 class="title"><%= link_to "Show Reviews", writer_reviews_path(@writer), class: "show_reviews" %></h4><br />
 
     <div class='movies'>
-      <div class='prev'></div>
-      <div class='next'></div>
-      <div class='image'></div>
-      <div class='movie_title'></div>
-      <p></p>
+      <ul>
+      </ul>
     </div><br />
 
     <div class="back">

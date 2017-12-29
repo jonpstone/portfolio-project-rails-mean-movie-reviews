@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-project-rails-mean-movie-reviews",
+  "version": "1.0.0",
+  "description": "## DESCRIPTION",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonpstone/portfolio-project-rails-mean-movie-reviews.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonpstone/portfolio-project-rails-mean-movie-reviews/issues"
+  },
+  "homepage": "https://github.com/jonpstone/portfolio-project-rails-mean-movie-reviews#readme",
+  "dependencies": {
+    "jquery": "^3.2.0",
+    "popper.js": "^1.12.9",
+    "slick-carousel": "^1.8.1"
+  }
+}

@@ -29,10 +29,6 @@ class Review < ApplicationRecord
     order("created_at DESC").offset(3).limit(1).first
   end
 
-  def self.last_five_reviews
-    last(5).reverse
-  end
-
   def self.ordered
     order(:title).all
   end
