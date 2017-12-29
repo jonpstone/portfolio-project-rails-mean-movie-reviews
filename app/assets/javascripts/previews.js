@@ -6,7 +6,7 @@ $(function(){
       json.forEach(function(movie){
         var title = movie.title;
         var narrative = movie.content;
-        var trunc = narrative.substring(0, 600);
+        var trunc = narrative.substring(0, 500);
         var writer = movie.writer_id;
         var review = movie.id;
         var url = writer + "/reviews/" + review;
@@ -14,8 +14,10 @@ $(function(){
         debugger
         $ul.append(
           "<li style='display: inline-block; vertical-align: top;'>" +
-          '<img src= "' + imgSrc + '" "width="100" height="200 style="float: left; padding-right: 20px; padding-bottom: 20px">' +
-          "<h4 class='title'>" + title + "</h4>" + trunc + "..." + "\n<strong>" + "Read more".link(url) + "</strong></p></li><br />"
+          "<a href=" + url + ">" + '<img src= "' + imgSrc +
+          '" "width="70" height="140" style="float: left; padding-right: 20px; padding-bottom: 20px">' + "</a>" +
+          "<h4 class='title' style='margin-top: -0.05%;'>" + title + "</h4><p style='margin-top: 2%;'>" +
+          trunc + "..." + "\n<strong>" + "Read more".link(url) + "</strong></p></li>"
         );
       });
     });
