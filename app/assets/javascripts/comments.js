@@ -18,7 +18,6 @@ $(function(){
       success: function(resp){
         $("#comment_content").val("");
         var $ul = $("div.comments ul");
-        debugger
         $ul.append(resp + "<br />");
       }
     });

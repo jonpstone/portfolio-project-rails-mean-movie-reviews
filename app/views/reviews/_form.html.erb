@@ -20,7 +20,7 @@
       <%= f.label :genres %><br />
       <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :genre_name) do |g| %>
         <%= g.label class: "label-checkbox" do %>
-          <%= g.check_box + g.text %><br /><br />
+          <%= g.check_box + " " + g.text %><br /><br />
         <% end %>
       <% end %><br />
 

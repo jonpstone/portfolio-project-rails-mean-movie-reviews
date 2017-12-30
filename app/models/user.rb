@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :comments
   validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
   validates :password,  presence: {on: :create}, length: {minimum: 6}, confirmation: true
