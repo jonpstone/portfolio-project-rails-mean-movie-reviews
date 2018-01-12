@@ -11,6 +11,7 @@ $(function(){
   });
 
   $("#new_comment").on("submit", function(e){
+    $('#comment-button').removeAttr('data-disable-with');
     $.ajax({
       type: ($("input[name='_method']").val() || this.method),
       url: this.action,
@@ -22,21 +23,5 @@ $(function(){
       }
     });
     e.preventDefault();
-  });
-
-  $('form').each(function(e){
-    var $that = $(this);
-      $(this).submit(function(){
-        $.ajax({
-          error: function(){
-            alert("Comment failed to post...");
-            $that.find("input[type='submit']").removeAttr('disabled');
-          },
-          success: function(){
-            $that.find("input[type='submit']").removeAttr('disabled');
-          },
-        });
-      return false;
-    });
   });
 });

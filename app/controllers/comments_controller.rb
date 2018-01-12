@@ -10,8 +10,6 @@ class CommentsController < ApplicationController
     @comment = @review.comments.build(comments_params)
     if @comment.save
       render 'comments/show', layout: false
-    else
-      render " "
     end
   end
 
