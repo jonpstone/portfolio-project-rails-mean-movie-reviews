@@ -1,29 +1,33 @@
-<div class="interface">
+<body>
+  <div class="interface">
 
-  <br /><h2 class="title">New Genre</h2><br />
+    <br /><h2 class="title">New Genre</h2><br />
 
-    <%= form_for @genre do |f| %>
-      <% if @genre.errors.any? %>
-      <div class="alert alert-warning alert-dismissable">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <h3><strong>Error! </strong><%= pluralize(@genre.errors.count, "error") %> prohibited this genre from being saved:</h3>
-          <ul>
-          <% @genre.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
+      <%= form_for @genre do |f| %>
+        <% if @genre.errors.any? %>
+        <div class="alert alert-warning alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <h3><strong>Error! </strong><%= pluralize(@genre.errors.count, "error") %> prohibited this genre from being saved:</h3>
+            <ul>
+            <% @genre.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <%= f.text_field :genre_name, autofocus: true, class: 'form-control' %>
+          </div>
+        </div><br />
+
+        <div class="actions">
+          <%= f.submit class: 'btn btn-default' %>
+          <%= link_to 'Back', :back, class: 'btn btn-default' %>
+        </div><br />
       <% end %>
-
-      <div class="row">
-        <div class="col-lg-4">
-          <%= f.text_field :genre_name, autofocus: true, class: 'form-control' %>
-        </div>
-      </div><br />
-
-      <div class="actions">
-        <%= f.submit class: 'btn btn-default' %>
-        <%= link_to 'Back', :back, class: 'btn btn-default' %>
-      </div><br />
-    <% end %>
-</div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+</body>

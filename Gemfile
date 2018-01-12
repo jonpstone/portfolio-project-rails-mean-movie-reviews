@@ -11,6 +11,7 @@ gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
+gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -21,6 +22,7 @@ gem 'mini_magick'
 gem 'carrierwave', '~> 1.0'
 gem 'seed_dump'
 gem 'simple_form'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem "rspec-rails"
@@ -34,10 +36,9 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem "thin"
   gem "guard-rspec", require: false
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
   gem "rack_session_access"
   gem "capybara"
-  gem "dotenv-rails"
 end
 
 group :development do

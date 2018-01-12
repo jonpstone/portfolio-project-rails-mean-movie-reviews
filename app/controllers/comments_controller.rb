@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       render 'comments/show', layout: false
     else
-      render "reviews/show"
+      render " "
     end
   end
 
