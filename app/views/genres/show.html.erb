@@ -1,26 +1,36 @@
 <head>
   <% provide(:title, "#{@genre.genre_name} Movies | Mean Review") %>
+  <style>
+    #gImage {margin-right: 2em; margin-bottom: 2em;}
+  </style>
 </head>
 <body>
-  <div class="interface">
-    <div class="title_delete">
-      <br /><h2 class="title"><%= @genre.genre_name %></h2><br /><br />
-    </div>
+  <main style="width:1400px;">
+    <div class="interface">
+      <div class="title_delete">
+        <br /><h2 class="title"><%= @genre.genre_name %></h2><br /><br />
+      </div>
 
-    <div class="list">
-      <% @genre.reviews.each do |movie| %>
-        <b>Movie </b><%= link_to movie.title, review_path(movie) %> (<%= movie.year %>) |
-        <b>Date </b><%= movie.date_published %>
+      <a href="#" class="js-next" data-id="<%=@genre.id%>">Next...</a>
+      <a href="#" class="js-prev" data-id="<%=@genre.id%>">Prev...</a>
+
+      <div class="list">
+        <% @genre.reviews.each do |movie| %>
+            <%= link_to image_tag(
+              movie.image.url,
+              title: "#{movie.title} (#{movie.year})",
+              id: "gImage",
+              width: "200",
+              height: "300"
+              ), review_path(movie)%>
+        <% end %>
+      </div><br />
+
+      <div class="actions">
         <% if current_user.try(:admin?) %>
-          | <%= link_to "Delete", movie, method: :delete, data: { confirm: "Are you sure?" } %>
-        <% end %><br /><br />
-      <% end %>
-    </div><br />
-
-    <div class="actions">
-      <% if current_user.try(:admin?) %>
-        <%= link_to "Delete Genre", @genre, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
-      <% end %>
+          <%= link_to "Delete Genre", @genre, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  </main>
 </body>

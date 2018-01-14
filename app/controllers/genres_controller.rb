@@ -3,6 +3,10 @@ class GenresController < ApplicationController
   before_action :authorize_user, except: :show
 
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @genre }
+    end
   end
 
   def new

@@ -16,3 +16,4 @@
 //= require bootstrap-sprockets
 //= require comments
 //= require previews
+//= require genres
