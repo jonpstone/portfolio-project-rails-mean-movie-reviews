@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.where(writer_id: params[:writer_id])
-    render json: @reviews, layout: false
+    render json: @reviews
   end
 
   def show

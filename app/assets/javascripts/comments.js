@@ -14,14 +14,35 @@ $(function(){
     $('#comment-button').removeAttr('data-disable-with');
     $.ajax({
       type: ($("input[name='_method']").val() || this.method),
+      dataType: "json",
       url: this.action,
       data: $(this).serialize(),
-      success: function(resp){
+      success: function(json){
         $("#comment_content").val("");
         var $ul = $("div.comments ul");
-        $ul.append(resp + "<br />");
+        debugger
+        $ul.append(json.content + "<br />");
       }
     });
     e.preventDefault();
   });
+
+  // $("form#new_comment").on("submit", function(e){
+  //   var $form = $(this);
+  //   var action = $form.attr("action");
+  //   var params = $form.serialize();
+  //
+  //   $.ajax({
+  //     url: action,
+  //     data: params,
+  //     dataType: "json",
+  //     method: "POST"
+  //     success: (funtion(json){
+  //       $("#comment_content").val("");
+  //       var $ul = $("div.comments ul");
+  //       $ul.append(json.content + "<br />");
+  //     }
+  //   });
+  //   e.preventDefault();
+  // });
 });
