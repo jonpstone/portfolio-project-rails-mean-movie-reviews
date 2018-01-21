@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :all_comments
 
   def index
-    render json: @comments
+    render json: @comments, layout: false
   end
 
   def create

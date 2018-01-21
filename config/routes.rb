@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   delete '/signout', to: 'sessions#destroy'
 
   get '/search', to: 'reviews#search'
-  get 'genre/:id/data', to: 'genre#data'
 
   resources :users, :genres
 
