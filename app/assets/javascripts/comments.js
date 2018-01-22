@@ -1,30 +1,20 @@
 
 $(function(){
+  $("#gap").hide();
+
   $("a.load_comments").on("click", function(e){
+    $("a.load_comments").hide();
+    $("#gap").show();
+
     $.get(this.href).success(function(json){
       var $ul = $("div.comments ul");
       $ul.html("");
       json.forEach(function(comment){
-        $ul.append("<li>" + comment.content + "</li><br>");
+        $ul.append(`<li>${comment.content}</li><br>`);
       });
     });
     e.preventDefault();
   });
-
-  // $("#new_comment").on("submit", function(e){
-  //   $('#comment-button').removeAttr('data-disable-with');
-  //   $.ajax({
-  //     type: ($("input[name='_method']").val() || this.method),
-  //     dataType: "json",
-  //     url: this.action,
-  //     data: $(this).serialize(),
-  //     success: function(json){
-  //       $("#comment_content").val("");
-  //       $("div.comments ul").append("<li>" + json.content + "</li><br />");
-  //     }
-  //   });
-  //   e.preventDefault();
-  // });
 
   $("#new_comment").on("submit", function(e){
     $('#comment-button').removeAttr('data-disable-with');
@@ -40,7 +30,7 @@ $(function(){
       success: function(json){
         debugger
         $("#comment_content").val("");
-        $("div.comments ul").append("<li>" + json.content + "</li><br />");
+        $("div.comments ul").append(`<li>${json.content}</li><br>`);
       }
     });
     e.preventDefault();

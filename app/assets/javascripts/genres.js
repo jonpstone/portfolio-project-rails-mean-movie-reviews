@@ -7,10 +7,9 @@ $(function () {
       $list.html("");
       data.reviews.forEach(function(movie){
         $list.append(
-          "<a href=" + "/reviews/" + movie.id + ">" +
-          "<img title=" + movie.title +
-          "id='gImage' width='200' height='300' style='margin-right: 2em; margin-bottom: 2em;' src=" +
-          movie.image.url + " alt='After earth'>" + "</a>"
+          `<a href='/reviews/${movie.id}'><img title='${movie.title}'
+          id='gImage' width='200' height='300' style='margin-right: 2em;
+          margin-bottom: 2em;' src='${movie.image.url}' alt='After earth'></a>`
         );
       });
       $("#js-next").attr("data-id", data["id"]);
@@ -26,10 +25,9 @@ $(function () {
       $list.html("");
       data.reviews.forEach(function(movie){
         $list.append(
-          "<a href=" + "/reviews/" + movie.id + ">" +
-          "<img title=" + movie.title +
-          "id='gImage' width='200' height='300' style='margin-right: 2em; margin-bottom: 2em;' src=" +
-          movie.image.url + " alt='After earth'>" + "</a>"
+          `<a href='/reviews/${movie.id}'><img title='${movie.title}'
+          id='gImage' width='200' height='300' style='margin-right: 2em;
+          margin-bottom: 2em;' src='${movie.image.url}' alt='After earth'></a>`
         );
       });
       $("#js-prev").attr("data-id", data["id"]);
