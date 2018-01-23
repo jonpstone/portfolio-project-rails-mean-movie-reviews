@@ -1,3 +1,15 @@
+function Comment(attr){
+  this.content = attr.content;
+}
+
+$(function(){
+  Comment.templateSource = $("#comment-template").html();
+  Comment.template = Handlebars.compile(Comment.templateSource);
+});
+
+Comment.prototype.renderLI = function(){
+  return Comment.template(this);
+}
 
 $(function(){
   $("#gap").hide();
@@ -5,12 +17,11 @@ $(function(){
   $("a.load_comments").on("click", function(e){
     $("a.load_comments").hide();
     $("#gap").show();
-
     $.get(this.href).success(function(json){
       var $ul = $("div.comments ul");
       $ul.html("");
-      json.forEach(function(comment){
-        $ul.append(`<li>${comment.content}</li><br>`);
+      json.forEach(function(comment_list){
+        $ul.append(`<li>${comment_list.content}</li><br>`);
       });
     });
     e.preventDefault();
@@ -21,16 +32,17 @@ $(function(){
     var $form = $(this);
     var action = $form.attr("action");
     var params = $form.serialize();
-
     $.ajax({
       url: action,
       data: params,
       dataType: "json",
       method: ($("input[name='_method']").val() || this.method),
       success: function(json){
-        debugger
+        var comment = new Comment(json);
+        var commentLi = comment.renderLI();
+
         $("#comment_content").val("");
-        $("div.comments ul").append(`<li>${json.content}</li><br>`);
+        $("div.comments ul").append(`<li>${commentLi}</li><br>`);
       }
     });
     e.preventDefault();
