@@ -1,11 +1,27 @@
+$(function(){
+  Comment.ready();
+});
+
 function Comment(attr){
   this.content = attr.content;
-}
+  this.username = attr.user.username;
+};
 
 Comment.ready = function(){
+  $("#gap").hide();
   Comment.templateSource = $("#comment-template").html();
   Comment.template = Handlebars.compile(Comment.templateSource);
-}
+  Comment.commentListener();
+  Comment.list();
+};
+
+Comment.prototype.renderLI = function(){
+  return Comment.template(this);
+};
+
+Comment.commentListener = function(){
+  $("form#new_comment").on("submit", Comment.formSubmit);
+};
 
 Comment.formSubmit = function(e){
   e.preventDefault();
@@ -20,18 +36,14 @@ Comment.formSubmit = function(e){
     method: ($("input[name='_method']").val() || this.method),
     success: Comment.success
   });
-}
+};
+
 Comment.success = function(json){
   var comment = new Comment(json);
   var commentLi = comment.renderLI();
-
   $("#comment_content").val("");
   $("div.comments ul").append(`<li>${commentLi}</li><br>`);
-}
-
-Comment.prototype.renderLI = function(){
-  return Comment.template(this);
-}
+};
 
 Comment.list = function(){
   $("a.load_comments").on("click", function(e){
@@ -41,16 +53,12 @@ Comment.list = function(){
       var $ul = $("div.comments ul");
       $ul.html("");
       json.forEach(function(comment_list){
-        $ul.append(`<li>${comment_list.content}</li><br>`);
+        $ul.append(
+          `<li><strong>${comment_list.user.username} said:
+          </strong>${comment_list.content}</li><br>`
+        );
       });
     });
     e.preventDefault();
   });
-}
-
-$(function(){
-  Comment.ready();
-  Comment.list();
-  $("#gap").hide();
-  $("form#new_comment").on("submit", Comment.formSubmit);
-});
+};

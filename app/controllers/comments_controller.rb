@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @review.comments.build(comments_params)
+    @comment = @review.comments.build(comments_params.merge(user_id: current_user.id))
     if @comment.save
       respond_to do |format|
         format.html { render 'comments/show', layout: false }

@@ -36,4 +36,8 @@ class Review < ApplicationRecord
   def self.search(query)
     where("title LIKE :query OR content LIKE :query", query: "%#{query}%")
   end
+
+  def as_json(options = {})
+    super(options.merge(include: [:user, comments: {include: :user}]))
+  end
 end

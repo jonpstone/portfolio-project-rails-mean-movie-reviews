@@ -1,5 +1,6 @@
 $(function(){
   $("a.show_reviews").on("click", function(e){
+    e.preventDefault();
     $("a.show_reviews").hide();
     $.get(this.href).success(function(json){
       var $ul = $("div.movies ul");
@@ -9,7 +10,6 @@ $(function(){
         var trunc = narrative.substring(0, 500);
         var url = movie.writer_id + "/reviews/" + movie.id;
         var readMore = "Read more";
-
         $ul.append(
           `<li style='display: inline-block; vertical-align: top;'><a href='${url}'>
           <img src='${movie.image.url}' width='95' height='140' style='float: left; padding-right: 20px; padding-bottom: 20px'></a>
@@ -18,6 +18,5 @@ $(function(){
         );
       });
     });
-    e.preventDefault();
   });
 });
