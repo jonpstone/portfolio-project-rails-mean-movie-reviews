@@ -1,13 +1,13 @@
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
-/usr/bin/ruby2.3 -r ./siteconf20170806-23281-euq5yf.rb extconf.rb 
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
+/usr/bin/ruby2.3 -r ./siteconf20180129-9132-rmbit3.rb extconf.rb
 creating Makefile
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
 make "DESTDIR=" clean
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
 make "DESTDIR="
 make: Nothing to be done for 'all'.
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
 make "DESTDIR=" install

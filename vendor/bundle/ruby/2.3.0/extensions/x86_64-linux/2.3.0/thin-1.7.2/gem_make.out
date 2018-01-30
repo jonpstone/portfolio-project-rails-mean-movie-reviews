@@ -1,16 +1,16 @@
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/thin-1.7.2/ext/thin_parser
-/usr/bin/ruby2.3 -r ./siteconf20170806-23281-1hcwqiq.rb extconf.rb 
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/thin-1.7.2/ext/thin_parser
+/usr/bin/ruby2.3 -r ./siteconf20180129-9132-k1fzn3.rb extconf.rb
 checking for main() in -lc... yes
 creating Makefile
 
 To see why this extension failed to compile, please check the mkmf.log which can be found here:
 
-  /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0/thin-1.7.2/mkmf.log
+  /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0/thin-1.7.2/mkmf.log
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/thin-1.7.2/ext/thin_parser
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/thin-1.7.2/ext/thin_parser
 make "DESTDIR=" clean
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/thin-1.7.2/ext/thin_parser
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/thin-1.7.2/ext/thin_parser
 make "DESTDIR="
 compiling parser.c
 compiling thin.c
@@ -34,6 +34,6 @@ thin.c:338:8: warning: implicit declaration of function ‘thin_http_parser_has_
         ^
 linking shared-object thin_parser.so
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/thin-1.7.2/ext/thin_parser
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/thin-1.7.2/ext/thin_parser
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20170806-23281-f2klp4
+/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20180129-9132-1fb744

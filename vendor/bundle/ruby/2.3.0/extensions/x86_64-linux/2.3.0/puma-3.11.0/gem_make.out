@@ -1,5 +1,5 @@
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/puma-3.11.0/ext/puma_http11
-/usr/bin/ruby2.3 -r ./siteconf20180110-17654-nde1sd.rb extconf.rb 
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/puma-3.11.0/ext/puma_http11
+/usr/bin/ruby2.3 -r ./siteconf20180129-9132-1f116q5.rb extconf.rb
 checking for BIO_read() in -lcrypto... yes
 checking for SSL_CTX_new() in -lssl... yes
 checking for openssl/bio.h... yes
@@ -7,12 +7,12 @@ creating Makefile
 
 To see why this extension failed to compile, please check the mkmf.log which can be found here:
 
-  /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0/puma-3.11.0/mkmf.log
+  /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0/puma-3.11.0/mkmf.log
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/puma-3.11.0/ext/puma_http11
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/puma-3.11.0/ext/puma_http11
 make "DESTDIR=" clean
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/puma-3.11.0/ext/puma_http11
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/puma-3.11.0/ext/puma_http11
 make "DESTDIR="
 compiling http11_parser.c
 compiling io_buffer.c
@@ -20,6 +20,6 @@ compiling mini_ssl.c
 compiling puma_http11.c
 linking shared-object puma/puma_http11.so
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/puma-3.11.0/ext/puma_http11
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/puma-3.11.0/ext/puma_http11
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20180110-17654-1pinvt7/puma
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20180129-9132-juz3tv/puma

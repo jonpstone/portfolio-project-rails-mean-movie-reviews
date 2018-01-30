@@ -1,5 +1,5 @@
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.18/ext/ffi_c
-/usr/bin/ruby2.3 -r ./siteconf20170805-18672-17ufztz.rb extconf.rb 
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.18/ext/ffi_c
+/usr/bin/ruby2.3 -r ./siteconf20180129-9132-15985mc.rb extconf.rb
 checking for ffi_call() in -lffi... yes
 checking for ffi_prep_closure()... yes
 checking for ffi_raw_call()... yes
@@ -14,12 +14,12 @@ creating Makefile
 
 To see why this extension failed to compile, please check the mkmf.log which can be found here:
 
-  /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0/ffi-1.9.18/mkmf.log
+  /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0/ffi-1.9.18/mkmf.log
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.18/ext/ffi_c
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.18/ext/ffi_c
 make "DESTDIR=" clean
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.18/ext/ffi_c
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.18/ext/ffi_c
 make "DESTDIR="
 compiling AbstractMemory.c
 compiling ArrayType.c
@@ -62,6 +62,6 @@ compiling Variadic.c
 compiling ffi.c
 linking shared-object ffi_c.so
 
-current directory: /home/jon/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.18/ext/ffi_c
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.18/ext/ffi_c
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20170805-18672-oy1j4o
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20180129-9132-prznw3

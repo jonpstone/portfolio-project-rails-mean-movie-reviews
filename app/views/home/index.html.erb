@@ -15,6 +15,8 @@
         <li data-target="#carousel-example" data-slide-to="2"></li>
         <li data-target="#carousel-example" data-slide-to="3"></li>
         <li data-target="#carousel-example" data-slide-to="4"></li>
+        <li data-target="#carousel-example" data-slide-to="5"></li>
+        <li data-target="#carousel-example" data-slide-to="6"></li>
       </ol>
 
       <div class="carousel-inner">
@@ -25,7 +27,6 @@
             <%= image_tag("/assets/quotes1.png", width: '120', height: '120', style: 'position: relative; left: 53%; top: 7em;') %>
             <h1><%= @reviews.latest_review.excerpt %></h1>
             <h4><%= @reviews.latest_review.writer.name %> reviews "<%= @reviews.latest_review.title %>"</h4>
-
           </div>
         </div>
         <div class="item">
@@ -53,6 +54,24 @@
             <%= image_tag("/assets/quotes1.png", width: '120', height: '120', style: 'position: relative; left: 53%; top: 7em;') %>
             <h1><%= @reviews.fourth_latest_review.excerpt %></h1>
             <h4><%= @reviews.fourth_latest_review.writer.name %> reviews "<%= @reviews.fourth_latest_review.title %>"</h4>
+          </div>
+        </div>
+        <div class="item">
+          <%= link_to image_tag(@reviews.fifth_latest_review.banner.url), review_path(@reviews.fifth_latest_review)%>
+          <div class="carousel-caption">
+            <%= image_tag("/assets/quotes.png", width: '120', height: '120', style: 'position: relative; right: 53%; top: 6em;') %>
+            <%= image_tag("/assets/quotes1.png", width: '120', height: '120', style: 'position: relative; left: 53%; top: 7em;') %>
+            <h1><%= @reviews.fifth_latest_review.excerpt %></h1>
+            <h4><%= @reviews.fifth_latest_review.writer.name %> reviews "<%= @reviews.fifth_latest_review.title %>"</h4>
+          </div>
+        </div>
+        <div class="item">
+          <%= link_to image_tag(@reviews.sixth_latest_review.banner.url), review_path(@reviews.sixth_latest_review)%>
+          <div class="carousel-caption">
+            <%= image_tag("/assets/quotes.png", width: '120', height: '120', style: 'position: relative; right: 53%; top: 6em;') %>
+            <%= image_tag("/assets/quotes1.png", width: '120', height: '120', style: 'position: relative; left: 53%; top: 7em;') %>
+            <h1><%= @reviews.sixth_latest_review.excerpt %></h1>
+            <h4><%= @reviews.sixth_latest_review.writer.name %> reviews "<%= @reviews.sixth_latest_review.title %>"</h4>
           </div>
         </div>
         <div class="item">
