@@ -1,11 +1,7 @@
 <head>
   <% provide(:title, "Home | Mean Review") %>
+  <link rel="stylesheet" type="text/css" href="assets/carousel.scss">
 </head>
-<style>
-  html, body {height: 100%; overflow: hidden;}
-  h1 {font-family: "Impact", Charcoal, sans-serif;}
-  .item, .active {margin-top: -80px;}
-</style>
 <body>
   <body>
     <div id="carousel-example" class="carousel slide" data-ride="carousel">
@@ -25,8 +21,10 @@
           <div class="carousel-caption">
             <%= image_tag("/assets/quotes.png", width: '120', height: '120', style: 'position: relative; right: 53%; top: 6em;') %>
             <%= image_tag("/assets/quotes1.png", width: '120', height: '120', style: 'position: relative; left: 53%; top: 7em;') %>
-            <h1><%= @reviews.latest_review.excerpt %></h1>
-            <h4><%= @reviews.latest_review.writer.name %> reviews "<%= @reviews.latest_review.title %>"</h4>
+            <div class="preview_text">
+              <h1><%= @reviews.latest_review.excerpt %></h1>
+              <h4><%= @reviews.latest_review.writer.name %> reviews "<%= @reviews.latest_review.title %>"</h4>
+            </div>
           </div>
         </div>
         <div class="item">
@@ -34,8 +32,10 @@
           <div class="carousel-caption">
             <%= image_tag("/assets/quotes.png", width: '120', height: '120', style: 'position: relative; right: 53%; top: 6em;') %>
             <%= image_tag("/assets/quotes1.png", width: '120', height: '120', style: 'position: relative; left: 53%; top: 7em;') %>
-            <h1><%= @reviews.second_latest_review.excerpt %></h1>
-            <h4><%= @reviews.second_latest_review.writer.name %> reviews "<%= @reviews.second_latest_review.title %>"</h4>
+            <div class="preview_text">
+              <h1><%= @reviews.second_latest_review.excerpt %></h1>
+              <h4><%= @reviews.second_latest_review.writer.name %> reviews "<%= @reviews.second_latest_review.title %>"</h4>
+            </div>
           </div>
         </div>
         <div class="item">
@@ -43,8 +43,10 @@
           <div class="carousel-caption">
             <%= image_tag("/assets/quotes.png", width: '120', height: '120', style: 'position: relative; right: 53%; top: 6em;') %>
             <%= image_tag("/assets/quotes1.png", width: '120', height: '120', style: 'position: relative; left: 53%; top: 7em;') %>
-            <h1><%= @reviews.third_latest_review.excerpt %></h1>
-            <h4><%= @reviews.third_latest_review.writer.name %> reviews "<%= @reviews.third_latest_review.title %>"</h4>
+            <div class="preview_text">
+              <h1><%= @reviews.third_latest_review.excerpt %></h1>
+              <h4><%= @reviews.third_latest_review.writer.name %> reviews "<%= @reviews.third_latest_review.title %>"</h4>
+            </div>
           </div>
         </div>
         <div class="item">
@@ -52,8 +54,10 @@
           <div class="carousel-caption">
             <%= image_tag("/assets/quotes.png", width: '120', height: '120', style: 'position: relative; right: 53%; top: 6em;') %>
             <%= image_tag("/assets/quotes1.png", width: '120', height: '120', style: 'position: relative; left: 53%; top: 7em;') %>
-            <h1><%= @reviews.fourth_latest_review.excerpt %></h1>
-            <h4><%= @reviews.fourth_latest_review.writer.name %> reviews "<%= @reviews.fourth_latest_review.title %>"</h4>
+            <div class="preview_text">
+              <h1><%= @reviews.fourth_latest_review.excerpt %></h1>
+              <h4><%= @reviews.fourth_latest_review.writer.name %> reviews "<%= @reviews.fourth_latest_review.title %>"</h4>
+            </div>
           </div>
         </div>
         <div class="item">
@@ -61,8 +65,10 @@
           <div class="carousel-caption">
             <%= image_tag("/assets/quotes.png", width: '120', height: '120', style: 'position: relative; right: 53%; top: 6em;') %>
             <%= image_tag("/assets/quotes1.png", width: '120', height: '120', style: 'position: relative; left: 53%; top: 7em;') %>
-            <h1><%= @reviews.fifth_latest_review.excerpt %></h1>
-            <h4><%= @reviews.fifth_latest_review.writer.name %> reviews "<%= @reviews.fifth_latest_review.title %>"</h4>
+            <div class="preview_text">
+              <h1><%= @reviews.fifth_latest_review.excerpt %></h1>
+              <h4><%= @reviews.fifth_latest_review.writer.name %> reviews "<%= @reviews.fifth_latest_review.title %>"</h4>
+            </div>
           </div>
         </div>
         <div class="item">
@@ -70,19 +76,23 @@
           <div class="carousel-caption">
             <%= image_tag("/assets/quotes.png", width: '120', height: '120', style: 'position: relative; right: 53%; top: 6em;') %>
             <%= image_tag("/assets/quotes1.png", width: '120', height: '120', style: 'position: relative; left: 53%; top: 7em;') %>
-            <h1><%= @reviews.sixth_latest_review.excerpt %></h1>
-            <h4><%= @reviews.sixth_latest_review.writer.name %> reviews "<%= @reviews.sixth_latest_review.title %>"</h4>
+            <div class="preview_text">
+              <h1><%= @reviews.sixth_latest_review.excerpt %></h1>
+              <h4><%= @reviews.sixth_latest_review.writer.name %> reviews "<%= @reviews.sixth_latest_review.title %>"</h4>
+            </div>
           </div>
         </div>
         <div class="item">
           <%= link_to image_tag "/assets/the-room.jpg"%>
           <div class="carousel-caption">
-            <h1>Here at THE MEAN REVIEW, your movie sucks and we want to know!</h1>
-            <h4>
-              Submit your hilariously scathing review of a terribe movie at
-              <a href="mailto:submissions@themeanreview.io?subject=testing out mailto">submissions@themeanreview.io</a>
-              and help your fellow citizens conserve hours of their precious lives.
-            </h4>
+            <div class="preview_text">
+              <h1>Here at THE MEAN REVIEW, your movie sucks... and we want to know</h1>
+              <h4>
+                Submit your hilariously scathing review of a terribe movie at
+                <a href="mailto:submissions@themeanreview.io?subject=testing out mailto">submissions@themeanreview.io</a>
+                and help your fellow citizens conserve hours of their precious lives.
+              </h4>
+            </div>
           </div>
         </div>
 

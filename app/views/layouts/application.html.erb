@@ -5,19 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Mean Review" %></title>
-    <style>
-        html, body {height: 100%;}
-        body {background-image: url(/assets/zz-wallpaper.jpg); background-size: cover;}
-        .title {font-family: "Impact", Arial, sans-serif;}
-        .message {}
-        .interface {height: 100%; overflow: hidden; margin-left: 211px; margin-top: 20px; padding-bottom: 100px}
-        .actions a {float:left; margin-right: 20px;}
-    </style>
     <link rel="icon" href="http://www.iconsplace.com/icons/preview/white/film-reel-256.png">
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Mean Review" %>">
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <% if content_for?(:head) %>
+      <%= yield(:head) %>
+    <% end %>
   </head>
 
   <body>

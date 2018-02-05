@@ -6,8 +6,7 @@ class WritersController < ApplicationController
     @writers = Writer.order(:name)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @writer = Writer.new
@@ -18,18 +17,17 @@ class WritersController < ApplicationController
     @writer = Writer.new(writer_params)
     if @writer.save
       redirect_to edit_review_path(@writer.reviews.last),
-      notice: "Critic created, please upload poster and banner below"
+      notice: 'Critic created, please upload poster and banner below'
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @writer.update(writer_params.except(:reviews_attributes))
-      redirect_to @writer, notice: "Critic profile updated"
+      redirect_to @writer, notice: 'Critic profile updated'
     else
       render :edit
     end
@@ -37,7 +35,7 @@ class WritersController < ApplicationController
 
   def destroy
     @writer.destroy
-    redirect_to home_admin_area_path, alert: "Writer deleted"
+    redirect_to home_admin_area_path, alert: 'Writer deleted'
   end
 
   private

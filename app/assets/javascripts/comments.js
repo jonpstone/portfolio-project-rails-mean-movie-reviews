@@ -1,11 +1,11 @@
-$(function(){
-  Comment.ready();
-});
-
 function Comment(attr){
   this.content = attr.content;
   this.username = attr.user.username;
 };
+
+$(function(){
+  Comment.ready();
+});
 
 Comment.ready = function(){
   $("#gap").hide();

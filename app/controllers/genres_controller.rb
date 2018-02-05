@@ -16,18 +16,17 @@ class GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to @genre, notice: "Genre created"
+      redirect_to @genre, notice: 'Genre created'
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @genre.update(genre_params)
-      redirect_to @genre, notice: "Genre updated"
+      redirect_to @genre, notice: 'Genre updated'
     else
       render :edit
     end
@@ -35,7 +34,7 @@ class GenresController < ApplicationController
 
   def destroy
     @genre.destroy
-    redirect_to home_admin_area_path, notice: "Genre deleted"
+    redirect_to home_admin_area_path, notice: 'Genre deleted'
   end
 
   private

@@ -1,7 +1,5 @@
 <head>
-  <style>
-    .label-checkbox {padding: 5px;}
-  </style>
+  <style>.label-checkbox {padding: 5px;}</style>
 </head>
 <body>
   <%= form_for review do |f| %>
@@ -27,7 +25,7 @@
       <%= f.label :poster %> (Poster on review page 200x300)<br />
       <%= f.file_field :image, autofocus: true %><br />
 
-      <%= f.label :banner %> (Banner on landing page 1920x1200)<br />
+      <%= f.label :banner %> (Banner on landing page 1920x1080)<br />
       <%= f.file_field :banner, autofocus: true %><br />
 
     <div class="row">

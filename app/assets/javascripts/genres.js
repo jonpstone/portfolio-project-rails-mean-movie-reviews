@@ -1,4 +1,4 @@
-$(function () {
+$(function (){
   $("#js-next").on("click", function() {
     var nextId = parseInt($("#js-next").attr("data-id")) + 1;
     $.get("/genres/" + nextId + ".json", function(data) {
@@ -17,7 +17,7 @@ $(function () {
     });
   });
 
-  $("#js-prev").on("click", function() {
+  $("#js-prev").on("click", function(){
     var prevId = parseInt($("#js-prev").attr("data-id")) - 1;
     $.get("/genres/" + prevId + ".json", function(data) {
       $(".title").text(data["genre_name"]);

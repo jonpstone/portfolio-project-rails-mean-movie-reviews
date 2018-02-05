@@ -6,8 +6,7 @@ class UsersController < ApplicationController
     @users = User.where.not(username: current_user.username)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new
@@ -23,8 +22,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
