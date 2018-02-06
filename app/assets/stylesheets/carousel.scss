@@ -1,13 +1,25 @@
 .preview_text h1 {
   font-family: "Impact", Charcoal, sans-serif;
 }
+
 .preview_text h4 {
   margin-bottom: 1em;
 }
+
 .preview_text {
   background-color: #000000;
-  border-color: #000000;
+  background: rgba(0, 0, 0, 0.6);
+  border: rgba(0, 0, 0, 0.6);
+  border-color: transparent;
   border-style: solid;
   border-width: 0.2em;
   margin-bottom: 1em;
+}
+
+.glyphicon.glyphicon-chevron-left {
+    font-size: 100px;
+}
+
+.glyphicon.glyphicon-chevron-right {
+    font-size: 100px;
 }
