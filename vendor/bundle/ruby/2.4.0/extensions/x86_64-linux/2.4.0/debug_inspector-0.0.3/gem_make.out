@@ -1,0 +1,15 @@
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.4.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+/usr/share/rvm/rubies/ruby-2.4.3/bin/ruby -r ./siteconf20180219-24492-rgrfm.rb extconf.rb
+creating Makefile
+
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.4.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.4.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.so
+
+current directory: /home/jonathan/code/projects/portfolio-project-rails-mean-movie-reviews/vendor/bundle/ruby/2.4.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -m 0755 debug_inspector.so ./.gem.20180219-24492-vzh4z

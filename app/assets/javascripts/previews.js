@@ -1,12 +1,23 @@
+function sortData(a, b){
+  if (a.year < b.year) {
+    return 1;
+  }
+  if (a.year > b.year) {
+    return -1;
+  }
+  return 0;
+}
+
 $(function(){
   $("a.show_reviews").on("click", function(e){
     e.preventDefault();
     $("a.show_reviews").hide();
-    
+
     $.get(this.href).success(function(json){
       var $ul = $("div.movies ul");
       $ul.html("");
-      json.forEach(function(movie){
+      var sortedData = json.sort(sortData);
+      sortedData.forEach(function(movie){
         var narrative = movie.content;
         var trunc = narrative.substring(0, 500);
         var url = movie.writer_id + "/reviews/" + movie.id;
