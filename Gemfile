@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rake', '~> 12.3.0'
 gem 'active_model_serializers'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -45,6 +46,7 @@ group :development, :test do
 end
 
 group :production do
+  gem 'rails_12factor', group: :production
   gem 'pg'
 end
 
