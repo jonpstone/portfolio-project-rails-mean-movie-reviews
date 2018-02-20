@@ -17,8 +17,8 @@ gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'puma', '~> 3.0'
-gem 'rails', '~> 5.0.2'
-gem 'sass-rails', '~> 5.0'
+gem 'rails'
+gem 'sass-rails'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
@@ -38,9 +38,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'thin'
-end
-
-group :development do
   gem 'sqlite3'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
