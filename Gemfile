@@ -23,6 +23,7 @@ gem 'simple_form'
 gem 'pg'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem "browserify-rails"
 
 group :development, :test do
   gem 'better_errors'
@@ -47,5 +48,3 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-
-ruby '2.4.3'
