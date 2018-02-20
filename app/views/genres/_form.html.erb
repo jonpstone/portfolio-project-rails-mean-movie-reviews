@@ -1,8 +1,6 @@
 <body>
   <div class="interface">
 
-    <br /><h2 class="title">New Genre</h2><br />
-
       <%= form_for @genre do |f| %>
         <% if @genre.errors.any? %>
         <div class="alert alert-warning alert-dismissable">
@@ -23,8 +21,11 @@
         </div><br />
 
         <div class="actions">
-          <%= f.submit class: 'btn btn-default' %>
+          <% if current_user.try(:admin?) && !genre.new_record? %>
+            <%= link_to "Delete", @genre, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger pull-left' %>
+          <% end %>
           <%= link_to 'Back', :back, class: 'btn btn-default' %>
+          <%= f.submit class: 'btn btn-default' %>
         </div><br />
       <% end %>
   </div>
