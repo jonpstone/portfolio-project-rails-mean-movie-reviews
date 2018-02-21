@@ -26,6 +26,7 @@ gem 'uglifier', '>= 1.3.0'
 gem "browserify-rails"
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'byebug', platform: :mri
@@ -50,4 +51,4 @@ group :production do
   gem 'pg'
 end
 
-ruby '2.4.3'
+# ruby '2.4.3'

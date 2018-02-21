@@ -19,7 +19,7 @@
     <main role="main" style="width:1600px; margin:0 auto;">
       <div class="message">
         <% if flash[:error] %>
-        <div class="alert alert-danger">
+        <br /><div class="alert alert-danger">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           <h2><%= content_tag(:div, flash[:error], id: "flash_error")  %></h2>
         </div>

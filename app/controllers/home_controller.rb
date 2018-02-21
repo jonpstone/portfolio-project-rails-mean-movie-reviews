@@ -3,6 +3,9 @@ class HomeController < ApplicationController
     @reviews = Review.all
   end
 
+  def about
+  end
+
   def admin_area
     @reviews = Review.order(:title)
     @writers = Writer.order(:name)
