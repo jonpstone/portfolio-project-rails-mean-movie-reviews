@@ -3,9 +3,12 @@
   <style>#overflow {overflow: hidden;}</style>
 </head>
 <body>
-  <div id="overflow">
+  <div class="interface">
+    <br /><h2 class="title">New Genre</h2><br />
+    <div id="overflow">
 
-    <%= render partial: 'form', locals: { genre: @genre } %>
+      <%= render partial: 'form', locals: { genre: @genre } %>
 
+    </div>
   </div>
 </body>
