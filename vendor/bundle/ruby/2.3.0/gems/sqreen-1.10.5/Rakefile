@@ -1,0 +1,20 @@
+# Copyright (c) 2015 Sqreen. All Rights Reserved.
+# Please refer to our terms for more information: https://www.sqreen.io/terms.html
+
+require 'bundler/gem_tasks'
+require 'rake/testtask'
+
+if RUBY_VERSION >= '1.9.3'
+  require 'ci/reporter/rake/minitest'
+  task :testunit => 'ci:setup:minitest'
+else
+  task :testunit => :test
+end
+
+Rake::TestTask.new do |t|
+  t.pattern = 'test/**/*.rb'
+  t.libs << 'test'
+end
+
+desc 'Run tests'
+task :default => :test

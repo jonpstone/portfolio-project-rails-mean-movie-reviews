@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   before_action :set_new_writer, only: [:new, :edit]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_writer, only: :index
+  before_action :redirection
 
   def index
     @reviews = Review.where(writer_id: params[:writer_id])

@@ -37,7 +37,7 @@
     </div>
 
     <div class="actions">
-      <% if current_user.try(:admin?) && !review.new_record? %>
+      <% if current_user.try(:admin?) && !user.new_record? %>
         <%= link_to "Delete", @user, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger pull-left' %>
       <% end %>
       <%= link_to 'Back', :back, class: 'btn btn-default' %>

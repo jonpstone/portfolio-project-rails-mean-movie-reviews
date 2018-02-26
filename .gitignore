@@ -22,3 +22,5 @@
 
 .env
 public/uploads
+
+.aws_key

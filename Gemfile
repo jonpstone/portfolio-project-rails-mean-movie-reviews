@@ -52,3 +52,4 @@ group :production do
 end
 
 # ruby '2.4.3'
+gem 'sqreen'

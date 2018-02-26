@@ -1,6 +1,7 @@
 class WritersController < ApplicationController
-  before_action :authorize_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize_user, except: [:index, :show]
   before_action :set_writer, only: [:show, :edit, :update, :destroy]
+  before_action :redirection
 
   def index
     @writers = Writer.order(:name)

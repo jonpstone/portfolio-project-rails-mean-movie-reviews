@@ -1,6 +1,7 @@
 class GenresController < ApplicationController
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user, except: :show
+  before_action :redirection
 
   def show
     respond_to do |format|

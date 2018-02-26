@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
     current_user
   end
 
+  def redirection
+    if !logged_in?
+      redirect_to signin_path
+    end
+  end
+
   private
 
   def current_user
