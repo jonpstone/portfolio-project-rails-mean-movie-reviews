@@ -5,5 +5,5 @@ CarrierWave.configure do |config|
       :aws_secret_access_key  => "GxHZDQehmM4Q0MZWBHraVu+RYSmZR9/5dlvutI9I",
       :region                 => 'us-east-1' # Change this for different AWS region. Default is 'us-east-1'
   }
-  config.fog_directory  = "bucket-name"
+  config.fog_directory  = "mean-review-assets"
 end
