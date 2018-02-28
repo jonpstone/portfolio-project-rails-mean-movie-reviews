@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def redirection
     if !logged_in?
-      redirect_to signin_path
+      redirect_to signin_path, notice: 'You must log in to proceed'
     end
   end
 
