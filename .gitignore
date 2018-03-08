@@ -23,4 +23,5 @@
 .env
 public/uploads
 
-.aws_key
+# Ignore Figaro AWS keys
+/config/application.yml
