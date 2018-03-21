@@ -25,3 +25,4 @@ public/uploads
 
 # Ignore Figaro AWS keys
 /config/application.yml
+dcmso
