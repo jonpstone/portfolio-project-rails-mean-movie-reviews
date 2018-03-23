@@ -1,4 +1,4 @@
-function sortData(a, b){
+function sortData(a, b) {
   if (a.year < b.year) {
     return 1;
   }
