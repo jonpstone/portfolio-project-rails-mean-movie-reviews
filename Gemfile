@@ -7,7 +7,7 @@ end
 
 gem 'rake', '~> 12.3.0'
 gem 'active_model_serializers'
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'carrierwave', '~> 1.0'
 gem 'aws-sdk', '~> 2'
